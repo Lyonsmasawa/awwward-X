@@ -10,7 +10,7 @@ class Profile(models.Model):
 
     # TODO: Define fields here
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_photo = models.ImageField(upload_to = 'awwwards/static/images/profiles/')
+    profile_photo = models.ImageField(upload_to='awwwards/static/images/profiles/')
     bio = models.TextField()
     my_link = models.URLField()
 
@@ -30,7 +30,7 @@ class Project(models.Model):
     # TODO: Define fields here
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=20)
-    image = models.ImageField(upload_to = 'awwwards/static/images/projects/')
+    image = models.ImageField(upload_to='awwwards/static/images/projects/')
     description = models.TextField()
     link = models.URLField()
 
