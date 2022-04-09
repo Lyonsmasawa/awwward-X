@@ -45,7 +45,10 @@ aria-hidden="true">
         <div class="modal-body">
             <form action="" method="post">
                 {% csrf_token %}
-                {% bootstrap_form form%
+                {% bootstrap_form form %}
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn">Rate</button>
             </form>
         </div>
 
