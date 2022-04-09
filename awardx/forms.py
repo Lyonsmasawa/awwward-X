@@ -30,3 +30,4 @@ class ProjectForm(forms.ModelForm):
 
         model = Project
         fields = '__all__'
+        exclude = ['owner']

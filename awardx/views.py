@@ -72,7 +72,16 @@ def profile(request, pk):
     return render(request, 'awardx/profile.html', context)
 
 def submitSite(request):
-    form = ProjectForm()
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.owner = request.user.profile
+            data.save()
+            return redirect('home')
+
+    else:
+        form = ProjectForm()
 
     context = {'form': form, }
     return render(request, 'awardx/submit_form.html', context)
