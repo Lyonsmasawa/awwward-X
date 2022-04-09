@@ -24,23 +24,33 @@
                     {% csrf_token %}
 
                     <div class="form__group">
-                        <label for="image">Image</label>
+                        <label for="project">Image</label>
                         {{form.image}}
                     </div>
 
                     <div class="form__group">
-                        <label for="image_name">Title</label>
-                        {{form.name}}
+                        <label for="project_name">Title</label>
+                        {{form.title}}
                     </div>
 
                     <div class="form__group">
-                        <label for="image_caption">Caption</label>
-                        {{form.caption}}
+                        <label for="project_description">Description</label>
+                        {{form.description}}
+                    </div>
+
+                    <div class="form__group">
+                        <label for="project_link">Link</label>
+                        {{form.link}}
+                    </div>
+
+                    <div class="form__group">
+                        <label for="project_description">Location</label>
+                        {{form.location}}
                     </div>
 
                     <div class="form__action">
                         <a class="btn btn--dark" href="{{request.META.HTTP_REFERER}}">Cancel</a>
-                        <button class="btn btn--main" type="submit">Submit image</button>
+                        <button class="btn btn--main" type="submit">Submit</button>
                     </div>
                 </form>
             </div>

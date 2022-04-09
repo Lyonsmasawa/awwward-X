@@ -1,7 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import redirect, render
 from .models import Follow, Profile, Project
-from .forms import UnFollowForm, FollowForm
+from .forms import ProjectForm, UnFollowForm, FollowForm
 
 # Create your views here.
 def home(request):
@@ -72,6 +72,7 @@ def profile(request, pk):
     return render(request, 'awardx/profile.html', context)
 
 def submitSite(request):
+    form = ProjectForm()
 
-    context = {}
+    context = {'form': form, }
     return render(request, 'awardx/submit_form.html', context)
