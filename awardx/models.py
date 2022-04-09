@@ -78,9 +78,10 @@ class Rating(models.Model):
     # TODO: Define fields here
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    design = models.IntegerField(default=0)
-    usability = models.IntegerField(default=0)
-    content = models.IntegerField(default=0)
+    design = models.FloatField(default=0)
+    usability = models.FloatField(default=0)
+    content = models.FloatField(default=0)
+    average = models.FloatField(default=0)
     when = models.DateTimeField(auto_now_add=True)
 
     class Meta:
