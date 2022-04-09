@@ -10,5 +10,25 @@
     <a href="{{user.my_link}}" target="_blank">{{user.user.username}}</a>
 </p>
 <p class="text-center">{{user.bio}}</p>
+<br>
+
+{% for project in user_projects %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{project.title}}</h5>
+                <div class="card">
+                    <img src="{{project.image.url}}" alt="image">
+                </div>
+                <p class="card-text">{{project.description}}</p>
+                <p>from {{project.location}} - - {{project.updated | date}}</p>
+                <a href="{{project.link}}" target="_blank">Visit</a>
+                <a href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
 
 {% endblock content %}
