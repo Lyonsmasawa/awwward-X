@@ -1,6 +1,6 @@
 import imp
 from django import forms
-from .models import Follow, Profile, Project
+from .models import Follow, Profile, Project, Rating
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
@@ -49,6 +49,13 @@ class ProfileForm(forms.ModelForm):
         fields = '__all__'
         exclude = ['user', 'followers', 'following',]
 
+class RatingForm(forms.ModelForm):
+    """Form definition for Rating."""
 
+    class Meta:
+        """Meta definition for Ratingform."""
+
+        fields = '__all__'
+        exclude = ['user', 'project', 'average' , 'when',]
 
 
