@@ -3,6 +3,7 @@ from pyexpat import model
 from turtle import title
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import ModelForm
 
 # Create your models here.
 class Profile(models.Model):
@@ -69,4 +70,25 @@ class Follow(models.Model):
 
     def __str__(self):
         """Unicode representation of Follow."""
+        return str(self.when)
+
+class Rating(models.Model):
+    """Model definition for Rating."""
+
+    # TODO: Define fields here
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    design = models.IntegerField(default=0)
+    usability = models.IntegerField(default=0)
+    content = models.IntegerField(default=0)
+    when = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        """Meta definition for Rating."""
+
+        verbose_name = 'Rating'
+        verbose_name_plural = 'Ratings'
+
+    def __str__(self):
+        """Unicode representation of Rating."""
         return str(self.when)
