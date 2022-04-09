@@ -11,7 +11,7 @@ class CustomUserForm(UserCreationForm):
 
 class FollowForm(forms.ModelForm):
     """Form definition for FollowForm."""
-
+ 
     class Meta:
         """Meta definition for MODELNAMEform."""
 
