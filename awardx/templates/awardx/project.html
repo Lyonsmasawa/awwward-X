@@ -15,6 +15,7 @@
                 <p>from {{project.location}} - - {{project.updated | date}}</p>
                 <a href="{{project.link}}" target="_blank">Visit</a>
                 <a href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}}</a>
+                <p>{{project.average_design|stringformat:'f'|slice:"0:4"}}-{{project.average_usability|stringformat:'f'|slice:"0:4"}}-{{project.average_content|stringformat:'f'|slice:"0:4"}}-{{project.average_score|stringformat:'f'|slice:"0:4"}}</p>
                 {% for rating in ratings %}
                 <p><strong>{{rating.design}}</strong>-<strong>{{rating.usability}}</strong>-<strong>{{rating.content}}</strong>-{{rating.average|stringformat:'f'|slice:"0:4"}}
                 </p>
@@ -22,7 +23,6 @@
                 <hr>
                 {% endfor %}
                 <p>{{ratings_count}}</p>
-                
                 {% for user in raters %}
                     {{user.username}}
                 {% endfor %}

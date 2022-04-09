@@ -171,6 +171,7 @@ def projectPage(request, pk):
     
     total_average = sum(average)/ratings_count
     project.average_score = total_average
+    project.save()
     
     context = {'project': project, 'ratings':ratings, 'ratings_count':ratings_count, 'raters':raters,}
     return render(request, 'awardx/project.html', context)
