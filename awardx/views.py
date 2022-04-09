@@ -1,7 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import redirect, render
 from .models import Follow, Profile, Project
-from .forms import ProjectForm, UnFollowForm, FollowForm
+from .forms import ProfileForm, ProjectForm, UnFollowForm, FollowForm
 
 # Create your views here.
 def home(request):
@@ -70,6 +70,19 @@ def profile(request, pk):
 
     context = {'user': user, 'user_projects': user_projects, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
     return render(request, 'awardx/profile.html', context)
+
+def updateUser(request):
+    user = request.user.profile
+    form = ProfileForm(instance = user)
+
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=user)
+        if form.is_valid():
+            form.save()
+        return redirect('profile', request.user.profile.id)
+
+    context = {'form':form}
+    return render(request, 'awardx/edit_profile.html', context)
 
 def submitSite(request):
     if request.method == 'POST':

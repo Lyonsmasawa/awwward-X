@@ -1,6 +1,7 @@
 import imp
 from django import forms
 from .models import Follow, Profile, Project
+from django.contrib.auth.models import User
 
 class FollowForm(forms.ModelForm):
     """Form definition for FollowForm."""
@@ -31,3 +32,17 @@ class ProjectForm(forms.ModelForm):
         model = Project
         fields = '__all__'
         exclude = ['owner']
+
+class ProfileForm(forms.ModelForm):
+    """Form definition for Profile."""
+
+    class Meta:
+        """Meta definition for Profileform."""
+
+        model = Profile
+        fields = '__all__'
+        exclude = ['user', 'followers', 'following',]
+
+
+
+

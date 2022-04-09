@@ -11,6 +11,8 @@
 </p>
 <p class="text-center">{{user.bio}}</p>
 
+<a href="{% url 'update-user' %}"><button class="btn btn--pill">Edit Profile <span
+    class="mr-3 fa fa-cog"></span></button></a>
 
 {% if isFollowing %}
 {% if unfollow_form %}

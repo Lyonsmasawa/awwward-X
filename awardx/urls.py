@@ -7,6 +7,7 @@ urlpatterns = [
     path('', views.home, name = 'home'),
     path('profile/<str:pk>', views.profile, name="profile"),
     path('submit-site/', views.submitSite, name="submit-site"),
+    path('update-user/', views.updateUser, name="update-user"),
 ]
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
