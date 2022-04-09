@@ -15,9 +15,9 @@
                 <label for="">Password:</label>
                 <input type="password" name="password" id="" placeholder="Enter password" required>
 
-                
+
                 {% for message in messages %}
-                    <li>{{message}}</li>
+                <li>{{message}}</li>
                 {% endfor %}
 
                 <input type="submit" value="Login">
@@ -31,7 +31,7 @@
                 Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -45,7 +45,7 @@
         </div>
         <div class="layout__body">
             <div class="logo-register">
-                
+
             </div>
             <form class="form" action="" method="post">
                 {% csrf_token %}
@@ -69,6 +69,9 @@
                     </svg>
                     Register
                 </button>
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
             </form>
 
             <div class="auth__action">

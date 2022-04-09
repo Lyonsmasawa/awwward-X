@@ -14,7 +14,7 @@ def home(request):
     context = {'projects': projects, }
     return render(request, 'awardx/home.html', context)
 
-def registrationPage(request):
+def registerPage(request):
     if request.method == 'POST':
         form = CustomUserForm(request.POST)
         if form.is_valid():
@@ -26,11 +26,13 @@ def registrationPage(request):
 
             login(request, user)
             return redirect('home')
-            
+
         else:
             messages.error(request, 'please try again')
-
-    context = {}
+    else:
+        form = CustomUserForm()
+        
+    context = {'form': form}
     return render(request, 'awardx/login_register.html', context) 
 
 def loginPage(request):
