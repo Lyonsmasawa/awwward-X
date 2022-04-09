@@ -148,12 +148,31 @@ def submitSite(request):
 def projectPage(request, pk):
     project = Project.objects.get(id = pk)
     ratings = Rating.objects.filter(project = project)
+    raters = []
+    design_ratings = []
+    usability_ratings = []
+    content_ratings = []
+    average = []
+
     for rating in ratings:
         total = rating.design + rating.usability + rating.content
         rating.average = total/3
         rating.save()
+        raters.append(rating.user)
+        design_ratings.append(rating.design)
+        usability_ratings.append(rating.usability)
+        content_ratings.append(rating.content)
+        average.append(rating.average)
 
-    context = {'project': project, 'ratings':ratings, }
+    ratings_count = ratings.count()
+    project.average_design = sum(design_ratings)/ratings_count
+    project.average_usability = sum(usability_ratings)/ratings_count
+    project.average_content = sum(content_ratings)/ratings_count
+    
+    total_average = sum(average)/ratings_count
+    project.average_score = total_average
+    
+    context = {'project': project, 'ratings':ratings, 'ratings_count':ratings_count, 'raters':raters,}
     return render(request, 'awardx/project.html', context)
 
 # def updateSite(request, pk):
