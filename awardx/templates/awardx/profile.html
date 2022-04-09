@@ -1,5 +1,5 @@
 {% extends 'main.html' %}
-
+{% load bootstrap5 %}
 
 {% block content %}
 <br>
@@ -10,6 +10,22 @@
     <a href="{{user.my_link}}" target="_blank">{{user.user.username}}</a>
 </p>
 <p class="text-center">{{user.bio}}</p>
+
+
+<form action="" method="post" style="margin-top: 2rem;">
+    {%csrf_token%}
+    
+    <input type="submit" class=" btn btn-info" name="unfollow" value="Unfollow"
+        style="color: #003569 !important; padding: 6px 9px;">
+</form>
+
+<form action="" method="post" style="margin-top: 2rem;">
+    {%csrf_token%}
+    {% bootstrap_form follow_form%}
+    <input type="submit" class=" btn btn-primary" name="follow" value="Follow"
+        style="background-color: #003569 !important; padding: 6px 9px;">
+</form>
+
 <br>
 <p class="container">{{project_count}} projects</p>
 {% for project in user_projects %}

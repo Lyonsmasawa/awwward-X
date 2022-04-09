@@ -58,8 +58,8 @@ class Follow(models.Model):
 
     # TODO: Define fields here
     when = models.DateTimeField(auto_now_add=True)
-    follow = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='follow')
-    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='followed')
+    whoIsFollowing = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='follow')
+    whoToFollow = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='followed')
 
     class Meta:
         """Meta definition for Follow."""
