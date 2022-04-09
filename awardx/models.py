@@ -13,6 +13,9 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='profiles/')
     bio = models.TextField()
     my_link = models.URLField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures
+   
 
     class Meta:
         """Meta definition for Profile."""
@@ -33,6 +36,9 @@ class Project(models.Model):
     image = models.ImageField(upload_to='projects/')
     description = models.TextField()
     link = models.URLField()
+    updated = models.DateTimeField(auto_now=True)
+    created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures
+   
 
     class Meta:
         """Meta definition for Project."""
