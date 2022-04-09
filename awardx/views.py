@@ -12,5 +12,7 @@ def profile(request, pk):
     user = Profile.objects.get(id = pk)
     user_projects = user.project_set.all()
 
-    context = {'user': user, 'user_projects': user_projects,}
+    project_count = user_projects.count()
+
+    context = {'user': user, 'user_projects': user_projects, 'project_count':project_count,}
     return render(request, 'awardx/profile.html', context)
