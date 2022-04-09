@@ -1,7 +1,7 @@
 from multiprocessing import context
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Follow, Profile, Project, Rating
-from .forms import ProfileForm, ProjectForm, UnFollowForm, FollowForm
+from .forms import ProfileForm, ProjectForm, RatingForm, UnFollowForm, FollowForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login ,logout
 from django.contrib.auth.models import User
@@ -172,8 +172,10 @@ def projectPage(request, pk):
     total_average = sum(average)/ratings_count
     project.average_score = total_average
     project.save()
+
+    form = RatingForm()
     
-    context = {'project': project, 'ratings':ratings, 'ratings_count':ratings_count, 'raters':raters,}
+    context = {'project': project, 'form': form, 'ratings':ratings, 'ratings_count':ratings_count, 'raters':raters,}
     return render(request, 'awardx/project.html', context)
 
 # def updateSite(request, pk):

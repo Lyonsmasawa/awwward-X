@@ -55,6 +55,7 @@ class RatingForm(forms.ModelForm):
     class Meta:
         """Meta definition for Ratingform."""
 
+        model = Rating
         fields = '__all__'
         exclude = ['user', 'project', 'average' , 'when',]
 

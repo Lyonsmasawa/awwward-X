@@ -45,24 +45,7 @@ aria-hidden="true">
         <div class="modal-body">
             <form action="" method="post">
                 {% csrf_token %}
-                <div class="mb-3">
-                    <label for="Design">Design</label>
-                    <input type="number" class="form-control" name="design" min="0"
-                        max="10" value="0">
-                </div>
-                <div class="mb-3">
-                    <label for="Usability">Usability</label>
-                    <input type="number" class="form-control" name="usability" min="0"
-                        max="10" value="0">
-                </div>
-                <div class="mb-3">
-                    <label for="Content">Content</label>
-                    <input type="number" class="form-control" id="Content" min="0"
-                        max="10" value="0" name="content">
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn">Save</button>
-                </div>
+                {% bootstrap_form form%
             </form>
         </div>
 
@@ -71,3 +54,21 @@ aria-hidden="true">
 </div>
 
 {% endblock content %}
+<!-- <div class="mb-3">
+    <label for="Design">Design</label>
+    <input type="number" class="form-control" name="design" min="0"
+        max="10" value="0">
+</div>
+<div class="mb-3">
+    <label for="Usability">Usability</label>
+    <input type="number" class="form-control" name="usability" min="0"
+        max="10" value="0">
+</div>
+<div class="mb-3">
+    <label for="Content">Content</label>
+    <input type="number" class="form-control" id="Content" min="0"
+        max="10" value="0" name="content">
+</div>
+<div class="modal-footer">
+    <button type="submit" class="btn">Save</button>
+</div> -->
