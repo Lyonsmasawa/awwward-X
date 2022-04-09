@@ -14,6 +14,11 @@ def home(request):
     context = {'projects': projects, }
     return render(request, 'awardx/home.html', context)
 
+def registrationPage(request):
+
+    context = {}
+    return render(request, 'awardx/login_register.html', context) 
+
 def loginPage(request):
     page = 'login'
 
