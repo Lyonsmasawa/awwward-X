@@ -15,6 +15,20 @@ def home(request):
     return render(request, 'awardx/home.html', context)
 
 def registrationPage(request):
+    if request.method == 'POST':
+        form = CustomUserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.username = user.username.lower()
+            user.email = user.email.lower()
+            Profile.objects.create(user = user)
+            user.save()
+
+            login(request, user)
+            return redirect('home')
+            
+        else:
+            messages.error(request, 'please try again')
 
     context = {}
     return render(request, 'awardx/login_register.html', context) 
