@@ -21,19 +21,26 @@ def profile(request, pk):
         if 'follow' in request.POST:
             form = FollowForm(request.POST)
             if form.is_valid():
+                #fill the follow model fields
                 form_data = form.save(commit=False)
                 form_data.whoToFollow = whoToFollow
                 form_data.whoIsFollowing = whoIsFollowing
                 form_data.save()
                 
+                #update followed user followers list
                 get_followers = Follow.objects.filter(whoToFollow = whoToFollow)
                 followers_count = get_followers.count()
-
                 whoToFollow.followers = followers_count
                 whoToFollow.save()
 
+                #update current user following list
                 get_following = Follow.objects.filter(whoIsFollowing = whoIsFollowing)
-                follow_count
+                following_count = get_following.count()
+                whoIsFollowing.following = following_count
+                whoIsFollowing.save()
+
+
+
                 
 
 
