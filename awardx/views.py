@@ -2,6 +2,9 @@ from multiprocessing import context
 from django.shortcuts import redirect, render
 from .models import Follow, Profile, Project
 from .forms import ProfileForm, ProjectForm, UnFollowForm, FollowForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login ,logout
+from django.contrib.auth.models import User
 
 # Create your views here.
 def home(request):
@@ -9,6 +12,24 @@ def home(request):
 
     context = {'projects': projects, }
     return render(request, 'awardx/home.html', context)
+
+def loginPage(request):
+    page = 'login'
+
+    if request.method == 'POST':
+        username = request.POST.get("username").lower()
+        password = request.POST.get("password")
+        
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid username or Password')
+
+    context = {'page': page}
+    return render(request, 'awardx/login_register.html', context) 
 
 def profile(request, pk):
     user = Profile.objects.get(id = pk)

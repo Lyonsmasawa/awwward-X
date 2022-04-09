@@ -1,5 +1,4 @@
 {% extends 'main.html' %}
-{% load crispy_forms_tags %}
 {% block content %}
 {% load static %}
 
@@ -16,6 +15,11 @@
                 <label for="">Password:</label>
                 <input type="password" name="password" id="" placeholder="Enter password" required>
 
+                
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+
                 <input type="submit" value="Login">
                 <span class="has-separator">OR</span>
                 <a href="#" class="facebook-login">
@@ -24,7 +28,7 @@
                 <a href="#" class="password-reset">Forgot password?</a>
             </form>
             <div class="sign-up">
-                Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+                Don't have an account? <a href="" class="ml-2">Sign Up</a>
             </div>
         </div>
         
