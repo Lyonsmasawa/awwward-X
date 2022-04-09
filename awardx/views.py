@@ -81,7 +81,7 @@ def updateUser(request):
             form.save()
         return redirect('profile', request.user.profile.id)
 
-    context = {'form':form}
+    context = {'form':form, 'user':user}
     return render(request, 'awardx/edit_profile.html', context)
 
 def submitSite(request):
