@@ -40,6 +40,10 @@ class Project(models.Model):
     description = models.TextField()
     link = models.URLField()
     location = models.CharField(max_length=20)
+    average_design = models.FloatField(default=0)
+    average_usability = models.FloatField(default=0)
+    average_content = models.FloatField(default=0)
+    average_score = models.FloatField(default=0)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures
    
