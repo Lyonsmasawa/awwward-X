@@ -56,10 +56,11 @@ def loginPage(request):
 
 
 def profile(request, pk):
-    user = Profile.objects.get(id = pk)
+    # user = Profile.objects.get(id = pk)
+    user = get_object_or_404(Profile, pk=pk)
     user_projects = user.project_set.all()
     
-    profile = get_object_or_404(Profile, pk=pk)
+   
 
     whoIsFollowing = Profile.objects.get(user = request.user)
     whoToFollow = Profile.objects.get(user = user.id)
@@ -115,7 +116,7 @@ def profile(request, pk):
 
     project_count = user_projects.count()
 
-    context = {'user': user, 'user_projects': user_projects,'profile':profile, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
+    context = {'user': user, 'user_projects': user_projects, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
     return render(request, 'awardx/profile.html', context)
 
 def updateUser(request):
