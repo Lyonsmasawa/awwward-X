@@ -36,6 +36,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to='projects/')
     description = models.TextField()
     link = models.URLField()
+    location = models.CharField(max_length=20)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures
    
