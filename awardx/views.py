@@ -145,6 +145,11 @@ def submitSite(request):
     context = {'form': form, }
     return render(request, 'awardx/submit_form.html', context)
 
+def projectPage(request, pk):
+
+    context = {}
+    return render(request, 'awardx/project.html', context)
+
 # def updateSite(request, pk):
 #     project = Project.objects.get(id = pk)
 
