@@ -17,7 +17,7 @@
                 <a href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}}</a>
                 {% for rating in ratings %}
                 <p><strong>{{rating.design}}</strong>-<strong>{{rating.usability}}</strong>-<strong>{{rating.content}}</strong>-{{rating.average|stringformat:'f'|slice:"0:4"}} </p>
-                <p></p>
+                <p>{{rating.user.username}}</p>
             {% endfor %}
             </div>               
         </div>
