@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import redirect, render
 from .models import Follow, Profile, Project
 from .forms import UnFollowForm, FollowForm
@@ -69,3 +70,8 @@ def profile(request, pk):
 
     context = {'user': user, 'user_projects': user_projects, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
     return render(request, 'awardx/profile.html', context)
+
+def submitSite(request):
+
+    context = {}
+    return render(request, 'awardx/submit_form.html', context)
