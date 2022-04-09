@@ -2,7 +2,7 @@ import imp
 from django import forms
 from .models import Follow
 
-class FollowFormForm(forms.ModelForm):
+class FollowForm(forms.ModelForm):
     """Form definition for FollowForm."""
 
     class Meta:
