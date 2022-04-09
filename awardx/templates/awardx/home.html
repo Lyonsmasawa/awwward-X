@@ -15,7 +15,7 @@
                 <p class="card-text">{{project.description}}</p>
                 <p>from {{project.location}} - - {{project.updated | date}}</p>
                 <a href="{{project.link}}" target="_blank">Visit</a>
-                <a href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}</a>
+                <a href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}}</a>
             </div>
         </div>
     </div>

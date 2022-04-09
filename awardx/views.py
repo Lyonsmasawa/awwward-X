@@ -7,3 +7,9 @@ def home(request):
 
     context = {'projects': projects, }
     return render(request, 'awardx/home.html', context)
+
+def profile(request, pk):
+    user = Profile.objects.get(id = pk)
+
+    context = {'user': user, }
+    return render(request, 'awardx/profile.html', context)
