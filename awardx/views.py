@@ -148,6 +148,17 @@ def submitSite(request):
 def projectPage(request, pk):
     project = Project.objects.get(id = pk)
     ratings = Rating.objects.filter(project = project)
+
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.user = request.user
+            data.project = project
+            data.average = (data.design + data.usability + data.content)/3
+            data.save()
+    
+
     raters = []
     design_ratings = []
     usability_ratings = []
@@ -155,9 +166,6 @@ def projectPage(request, pk):
     average = []
 
     for rating in ratings:
-        total = rating.design + rating.usability + rating.content
-        rating.average = total/3
-        rating.save()
         raters.append(rating.user)
         design_ratings.append(rating.design)
         usability_ratings.append(rating.usability)
