@@ -5,6 +5,7 @@ from .forms import ProfileForm, ProjectForm, UnFollowForm, FollowForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login ,logout
 from django.contrib.auth.models import User
+from .forms import CustomUserForm
 
 # Create your views here.
 def home(request):
@@ -30,6 +31,7 @@ def loginPage(request):
 
     context = {'page': page}
     return render(request, 'awardx/login_register.html', context) 
+
 
 def profile(request, pk):
     user = Profile.objects.get(id = pk)
