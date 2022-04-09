@@ -1,5 +1,5 @@
 from multiprocessing import context
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .models import Follow, Profile, Project
 from .forms import ProfileForm, ProjectForm, UnFollowForm, FollowForm
 from django.contrib import messages
@@ -21,8 +21,9 @@ def registerPage(request):
             user = form.save(commit=False)
             user.username = user.username.lower()
             user.email = user.email.lower()
-            Profile.objects.create(user = user)
             user.save()
+
+            Profile.objects.create(user = user)
 
             login(request, user)
             return redirect('home')
@@ -31,7 +32,7 @@ def registerPage(request):
             messages.error(request, 'please try again')
     else:
         form = CustomUserForm()
-        
+
     context = {'form': form}
     return render(request, 'awardx/login_register.html', context) 
 
@@ -57,6 +58,8 @@ def loginPage(request):
 def profile(request, pk):
     user = Profile.objects.get(id = pk)
     user_projects = user.project_set.all()
+    
+    profile = get_object_or_404(Profile, pk=pk)
 
     whoIsFollowing = Profile.objects.get(user = request.user)
     whoToFollow = Profile.objects.get(user = user.id)
@@ -112,7 +115,7 @@ def profile(request, pk):
 
     project_count = user_projects.count()
 
-    context = {'user': user, 'user_projects': user_projects, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
+    context = {'user': user, 'user_projects': user_projects,'profile':profile, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
     return render(request, 'awardx/profile.html', context)
 
 def updateUser(request):

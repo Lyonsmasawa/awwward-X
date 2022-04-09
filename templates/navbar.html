@@ -19,7 +19,7 @@
             <div>
                 <a href="{% url 'submit-site' %}"><strong>SUBMIT YOUR SITE!</strong></a>
             </div>
-
+            <a href="{% url 'profile' request.user.id %}">profile - {{request.user.id}}</a>
         </div>
     </nav>
 </header>
