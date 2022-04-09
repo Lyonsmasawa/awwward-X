@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import Follow, Profile, Project
 from .forms import UnFollowForm, FollowForm
 
@@ -12,11 +12,12 @@ def home(request):
 def profile(request, pk):
     user = Profile.objects.get(id = pk)
     user_projects = user.project_set.all()
-    form = FollowForm()
 
     whoIsFollowing = Profile.objects.get(user = request.user)
-    whoToFollow = Profile.objects.get(user = user.id) #lyons1
+    whoToFollow = Profile.objects.get(user = user.id)
     
+    isFollowing = Follow.objects.filter(whoIsFollowing=whoIsFollowing, whoToFollow=whoToFollow)
+
     if request.method == 'POST':
         if 'follow' in request.POST:
             form = FollowForm(request.POST)
@@ -38,15 +39,33 @@ def profile(request, pk):
                 following_count = get_following.count()
                 whoIsFollowing.following = following_count
                 whoIsFollowing.save()
+            
+            return redirect('profile', user.id)
 
+        elif 'unfollow' in request.POST:
+            form = UnFollowForm(request.POST)
+            if form.is_valid():
+                form_data = form.save(commit=False)
+                form_data = Follow.objects.filter(whoIsFollowing=whoIsFollowing, whoToFollow=whoToFollow)
+                form_data.delete()
 
+                #update un-followed user followers list
+                get_followers = Follow.objects.filter(whoToFollow = whoToFollow)
+                followers_count = get_followers.count()
+                whoToFollow.followers = followers_count
+                whoToFollow.save()
 
-                
-
-
-
+                #update current user following list
+                get_following = Follow.objects.filter(whoIsFollowing = whoIsFollowing)
+                following_count = get_following.count()
+                whoIsFollowing.following = following_count
+                whoIsFollowing.save()
+            return redirect('profile', user.id)
+    else:
+        follow_form = FollowForm()
+        unfollow_form = UnFollowForm()
 
     project_count = user_projects.count()
 
-    context = {'user': user, 'user_projects': user_projects, 'project_count':project_count, 'follow_form': form,}
+    context = {'user': user, 'user_projects': user_projects, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
     return render(request, 'awardx/profile.html', context)

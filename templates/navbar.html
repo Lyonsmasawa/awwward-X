@@ -1,0 +1,26 @@
+{% load static %}
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <div class="search__input m-auto d-none d-md-block">
+                <form class="form-inline my-2 my-lg-0" method="get" action="">
+                    <input class="form-control mr-sm-2 nosubmit" type="search" name="q" placeholder="Search"
+                        aria-label="Search">
+                </form>
+            </div>
+
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/aw.png' %}" alt="Instagram">
+            </a>
+
+            <div>
+                <p>ARE YOU A MEMBER? <a href=""><strong>REGISTER</strong></a> / <a href=""><strong>LOG IN</strong></a></p>
+            </div>
+
+
+
+
+
+        </div>
+    </nav>
+</header>
