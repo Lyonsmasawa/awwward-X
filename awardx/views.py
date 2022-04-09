@@ -145,17 +145,17 @@ def submitSite(request):
     context = {'form': form, }
     return render(request, 'awardx/submit_form.html', context)
 
-def updateSite(request, pk):
-    project = Project.objects.get(id = pk)
+# def updateSite(request, pk):
+#     project = Project.objects.get(id = pk)
 
-    if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES, instance=project)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
+#     if request.method == 'POST':
+#         form = ProjectForm(request.POST, request.FILES, instance=project)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('home')
 
-    else:
-        form = ProjectForm(instance= project)
+#     else:
+#         form = ProjectForm(instance= project)
 
-    context = {'form': form, }
-    return render(request, 'awardx/submit_form.html', context)
+#     context = {'form': form, }
+#     return render(request, 'awardx/submit_form.html', context)
