@@ -53,3 +53,20 @@ class Project(models.Model):
         """Unicode representation of Project."""
         return self.title
 
+class Follow(models.Model):
+    """Model definition for Follow."""
+
+    # TODO: Define fields here
+    when = models.DateTimeField(auto_now_add=True)
+    follow = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='follow')
+    followed = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='followed')
+
+    class Meta:
+        """Meta definition for Follow."""
+
+        verbose_name = 'Follow'
+        verbose_name_plural = 'Follows'
+
+    def __str__(self):
+        """Unicode representation of Follow."""
+        return str(self.when)
