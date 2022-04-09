@@ -2,5 +2,13 @@
 
 
 {% block content %}
-   <img src="{{user.profile_photo.url}}" alt="" s>
+<br>
+<p class="text-center">
+    <img src="{{user.profile_photo.url}}" alt="" style="width: 10%;">
+</p>
+<p class="text-center">
+    <a href="{{user.my_link}}" target="_blank">{{user.user.username}}</a>
+</p>
+<p class="text-center">{{user.bio}}</p>
+
 {% endblock content %}
