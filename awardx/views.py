@@ -1,6 +1,6 @@
 from multiprocessing import context
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Follow, Profile, Project
+from .models import Follow, Profile, Project, Rating
 from .forms import ProfileForm, ProjectForm, UnFollowForm, FollowForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login ,logout
@@ -147,8 +147,13 @@ def submitSite(request):
 
 def projectPage(request, pk):
     project = Project.objects.get(id = pk)
+    ratings = Rating.objects.filter(project = project)
+    for rating in ratings:
+        total = rating.design + rating.usability + rating.content
+        rating.average = total/3
+        rating.save()
 
-    context = {'project': project}
+    context = {'project': project, 'ratings':ratings, }
     return render(request, 'awardx/project.html', context)
 
 # def updateSite(request, pk):
