@@ -10,7 +10,7 @@ class FollowForm(forms.ModelForm):
 
         model = Follow
         fields = '__all__'
-        exclude = ['follow', 'followed']
+        exclude = ['follow', 'followed'] 
 
 class UnFollowForm(forms.ModelForm):
     """Form definition for MODELNAME."""
