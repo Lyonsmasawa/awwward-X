@@ -13,6 +13,8 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='profiles/')
     bio = models.TextField()
     my_link = models.URLField()
+    followers = models.IntegerField(default=0)
+    following = models.IntegerField(default=0)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures
    
