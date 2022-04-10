@@ -54,7 +54,9 @@ body {
 img {
     width: 100%;
 }
-
+.img-thumbnail{
+    border-radius: 1px;
+}
 a {
     display: inline-block;
     color: black;
@@ -1811,21 +1813,6 @@ nav {
     white-space: nowrap;
 }
 
-.xdrop {
-    width: 100%;
-    padding: 0%;
-    margin: 0%;
-
-}
-
-.xdr {
-    background-color: aquamarine;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .fullz {
     width: 100%;
     display: flex;
@@ -1909,4 +1896,18 @@ nav {
 .grpx{
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: max-content;
+}
+
+.cvb{
+    font-size: 1.4rem;
+}
+
+.dropdown-toggle{
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 900;
 }

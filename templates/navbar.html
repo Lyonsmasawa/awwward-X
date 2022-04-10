@@ -60,14 +60,15 @@
 
 
             {% if request.user.is_authenticated %}
-            <div class="three">
+            <div class="three" style="width: max-content;">
                 <div class="dropdown xdrop">
-                    <a class="nav-link dropdown-toggle xdr" style="width: 9rem;" href="#" id="navbarDropdown"
+                    <a class="nav-link dropdown-toggle xdr" style="width: 10rem;" href="#" id="navbarDropdown"
                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {% if request.user.profile.profile_photo %}
                         <div class="grpx">
-                            <p>{{request.user.username}}</p>
-                            <p><img src=" {{ request.user.profile.profile_photo.url}}" class="rounded-circle z-depth-0">
+                            <p class="cvb">{{request.user.username | upper}}</p>
+                            <p>&nbsp;</p>
+                            <p><img src=" {{ request.user.profile.profile_photo.url}}" class="rounded-circle img-thumbnail" style="width: 8rem;">
                             </p>
                         </div>
                         {% else %}
