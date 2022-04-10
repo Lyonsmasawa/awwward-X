@@ -2,6 +2,7 @@
 
 * {
     font-family: 'Josefin Sans', sans-serif;
+    box-sizing: border-box;
 }
 
 /* The sidebar menu */
@@ -63,20 +64,22 @@
 .openbtn {
     cursor: pointer;
     color: black;
-    font-weight: 900;
+    font-weight: bold;
+    width: max-content;
     border: none;
+    background: none;
 }
 
 .openbtn:hover {
-    font-weight: 500;
-    transition: 1s;
+    transition: .4s;
+    color: grey;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #mainside {
     transition: margin-left .5s;
     /* If you want a transition effect */
-    padding: 20px;
+    padding: .5rem 20px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -88,4 +91,34 @@
     .sidebar a {
         font-size: 18px;
     }
+}
+
+.searchx input[type=text] {
+    width: 25%;
+    border: none;
+    background-color: none;
+    background-size: 1rem;
+    background-image: url('https://www.freeiconspng.com/uploads/search-icon-png-21.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    color: transparent;
+}
+
+.searchx input[type=text]:focus {
+    width: 100%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background: none;
+    padding: 5%;
+    color: grey;
+    font-size: .5rem;
+}
+.one{
+    display: flex;
+    align-items: center;
+}
+.two {
+    border-right: 1px solid grey;
 }
