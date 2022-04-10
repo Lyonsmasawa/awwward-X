@@ -54,6 +54,9 @@ def loginPage(request):
     context = {'page': page}
     return render(request, 'awardx/login_register.html', context) 
 
+def logoutUser(request):
+    logout(request)
+    return redirect('home')
 
 def profile(request, pk):
     # user = Profile.objects.get(id = pk)
