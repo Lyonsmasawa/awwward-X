@@ -1160,18 +1160,6 @@ a {
     padding: 0 auto;
 }
 
-.demo {
-    height: 61.8rem;
-    background: url('../../static/images/insta.jpg') center no-repeat;
-    flex: 1;
-    margin-right: -100px;
-}
-
-.demox {
-    height: 61.8rem;
-    background: url('../../static/images/dmx.jpg') center no-repeat;
-}
-
 .form-data {
     width: 100%;
     max-width: 35rem;
@@ -1631,6 +1619,8 @@ input.nosub {
 .full_login {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .fm {

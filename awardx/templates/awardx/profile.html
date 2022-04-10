@@ -70,8 +70,10 @@
             {% for project in user_projects %}
             <div class="row">
                 <div class="col-md-3">
-                    <div class="card" style="width: 29rem;">
-                        <img src="{{project.image.url}}" class="card-img-top" alt="project image">
+                    <div class="card" style="width: 26rem;">
+                        <a href="{% url 'project' project.id %}">
+                            <img src="{{project.image.url}}" class="card-img-top" alt="project image">
+                        </a>
                         <div class="card-body">
                             <h4 class="card-title"><strong>{{project.title}}</strong></h4>
                         </div>
