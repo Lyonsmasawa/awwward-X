@@ -67,7 +67,18 @@ def profile(request, pk):
     # user = Profile.objects.get(id = pk)
     user = get_object_or_404(Profile, pk=pk)
     user_projects = user.project_set.all()
+    follow_form = FollowForm()
+    unfollow_form = UnFollowForm()
+    isFollowing = False
 
+    project_count = user_projects.count()
+
+    context = {'user': user, 'user_projects': user_projects, 'project_count':project_count, 'isFollowing':isFollowing, 'follow_form': follow_form, 'unfollow_form': unfollow_form,}
+    return render(request, 'awardx/profile.html', context)
+
+@login_required(login_url='login')
+def followForm(request, pk):
+    user = get_object_or_404(Profile, pk=pk)
     whoIsFollowing = Profile.objects.get(user = request.user)
     whoToFollow = Profile.objects.get(user = user.id)
     
@@ -116,15 +127,11 @@ def profile(request, pk):
                 whoIsFollowing.following = following_count
                 whoIsFollowing.save()
             return redirect('profile', user.id)
-    else:
-        follow_form = FollowForm()
-        unfollow_form = UnFollowForm()
 
-    project_count = user_projects.count()
-
-    context = {'user': user, 'user_projects': user_projects, 'isFollowing':isFollowing, 'project_count':project_count, 'follow_form': follow_form, 'unfollow_form': unfollow_form, }
+    context = {}
     return render(request, 'awardx/profile.html', context)
 
+@login_required(login_url='login')
 def updateUser(request):
     user = request.user.profile
     form = ProfileForm(instance = user)
@@ -138,6 +145,7 @@ def updateUser(request):
     context = {'form':form, 'user':user}
     return render(request, 'awardx/edit_profile.html', context)
 
+@login_required(login_url='login')
 def submitSite(request):
     if request.method == 'POST':
         form = ProjectForm(request.POST, request.FILES)
