@@ -16,7 +16,7 @@
             <div>
                 {% if isFollowing %}
                 {% if unfollow_form %}
-                <form action="" method="post">
+                <form action="{% url 'follow' user.user.id %}" method="post">
                     {%csrf_token%}
                     {% bootstrap_form unfollow_form%}
                     <input type="submit" class=" btn btn-x" name="unfollow" value="following">
@@ -24,7 +24,7 @@
                 {% endif %}
                 {% else %}
                 {% if follow_form %}
-                <form action="" method="post">
+                <form action="{% url 'follow' user.user.id %}" method="post">
                     {%csrf_token%}
                     {% bootstrap_form follow_form%}
                     <input type="submit" class=" btn btn-x" name="follow" value="Follow">

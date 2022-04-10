@@ -69,7 +69,14 @@ def profile(request, pk):
     user_projects = user.project_set.all()
     follow_form = FollowForm()
     unfollow_form = UnFollowForm()
-    isFollowing = False
+
+    if request.user.is_authenticated:
+        whoIsFollowing = Profile.objects.get(user = request.user)
+        whoToFollow = Profile.objects.get(user = user.id)
+        isFollowing = Follow.objects.filter(whoIsFollowing=whoIsFollowing, whoToFollow=whoToFollow)
+    
+    else:
+        isFollowing = False
 
     project_count = user_projects.count()
 
