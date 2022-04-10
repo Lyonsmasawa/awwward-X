@@ -23,8 +23,7 @@
     padding: 0;
     box-sizing: border-box;
     text-rendering: optimizeLegibility;
-    /* color: inherit; */
-    font-size: inherit;
+
 }
 
 html {
@@ -1164,13 +1163,15 @@ a {
 .demo {
     height: 61.8rem;
     background: url('../../static/images/insta.jpg') center no-repeat;
-    flex: 1;    
+    flex: 1;
     margin-right: -100px;
 }
+
 .demox {
     height: 61.8rem;
-    background: url('../../static/images/dmx.jpg') center no-repeat;   
+    background: url('../../static/images/dmx.jpg') center no-repeat;
 }
+
 .form-data {
     width: 100%;
     max-width: 35rem;
@@ -1627,18 +1628,21 @@ input.nosub {
     color: white;
 }
 
-.full_login{
+.full_login {
     display: flex;
     flex-direction: column;
 }
-.fm{
+
+.fm {
     text-align: left;
 }
-.viewx{
+
+.viewx {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 nav {
     background-color: white;
     padding: 0%;
@@ -1808,7 +1812,7 @@ nav {
     font-size: 60%;
 }
 
-.ilogin{
+.ilogin {
     width: max-content;
     font-size: 100%;
     padding-right: 1rem;
@@ -1821,13 +1825,15 @@ nav {
     padding: 1rem;
     margin: 0%;
 }
-.xdrop{
+
+.xdrop {
     width: 100%;
     padding: 0%;
     margin: 0%;
- 
+
 }
-.xdr{
+
+.xdr {
     background-color: aquamarine;
     display: flex;
     width: 100%;
@@ -1835,28 +1841,55 @@ nav {
     justify-content: space-between;
 }
 
-.social-icons{
+.fullz {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-icons {
     display: flex;
     align-items: center;
-    justify-content: space-around;
 }
-.btn-x{
+
+.btn-x {
     background-color: mediumaquamarine;
     color: white;
     font-size: 1.3rem;
     padding: .5rem 1.3rem;
     border-radius: 25px;
 }
-.btnc{
+.photox{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btnc {
     border-radius: 25px;
     background-color: transparent;
     border: 1px solid black;
     color: black;
     width: max-content;
 }
-
-.upone{
+.btnc:hover{
+    border: 1px solid mediumaquamarine;
+    color: mediumaquamarine;
+}
+.visitsite{
+    display: flex;
+}
+.upone {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    width: 90%;
+}
+
+.trxz {
+    padding: 3%;
+    outline: black;
+    border: 1px solid black;
+    border-radius: 50%;
 }

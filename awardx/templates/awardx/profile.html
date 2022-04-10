@@ -3,14 +3,13 @@
 {% load static %}
 
 {% block content %}
-<div class="container prof container">
+<div class="container-fluid fullz">
     <div class="upone">
-        <div class="social-icons">
-            <i class="fas fa-facebook"></i>
-            <i class="fas fa-twitter"></i>
-            <i class="fas fa-linkedin"></i>
-            <i class="fas fa-instagram"></i>
-            <i class="fa fa-instagram" aria-hidden="true"></i>
+        <div class="social-icons ">
+            <i class="fa-brands fa-facebook trxz"><a href="#"></a></i>&nbsp;
+            <i class="fa-brands fa-twitter trxz" ><a href="#"></a></i>&nbsp;
+            <i class="fa-brands fa-linkedin trxz"><a href="#"></a></i>&nbsp;
+            <i class="fa-brands fa-instagram trxz"><a href="#"></a></i>&nbsp;
             {%if profile.user.username == request.user.username%}
 
             {% else%}
@@ -37,11 +36,11 @@
             </div>
         </div>
 
-        <div class="container-fluid photo">
+        <div class="photox">
             {% if profile.profile_photo %}
-            <img src="{{profile.profile_photo.url}}" alt="" class="rounded-circle img-thumbnail" style="width: 10%">
+            <img src="{{profile.profile_photo.url}}" alt="" class="rounded-circle" style="width: 10%">
             {% else %}
-            <img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle img-thumbnail" style="width: 10%">
+            <img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle" style="width: 10%">
             {%endif%}
         </div>
 
