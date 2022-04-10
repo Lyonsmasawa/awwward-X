@@ -4,7 +4,17 @@
     font-family: 'Josefin Sans', sans-serif;
     box-sizing: border-box;
 }
+nav{
+    background-color: white;
+}
 
+.fullnav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0%;
+}
 /* The sidebar menu */
 .sidebar {
     height: 100%;
@@ -121,4 +131,24 @@
 }
 .oneone {
     border-right: 1px solid grey;
+}
+.ilogin, .ilogin a{
+    text-transform: uppercase;
+    text-decoration: none;
+}
+.two{
+  
+}
+.ax:hover{
+    color: grey;
+    transition: .6s;
+}
+
+.three{
+    display: flex;
+    align-items: center;
+    flex-basis: 100%;
+    width: fit-content;
+    margin: 0%;
+    font-size: 1rem;
 }
