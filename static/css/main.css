@@ -1824,6 +1824,9 @@ nav {
     font-size: 100%;
     padding: 1rem;
     margin: 0%;
+    background-color: black;
+    color: white;
+    font-weight: 900;
 }
 
 .xdrop {
