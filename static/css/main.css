@@ -1802,13 +1802,13 @@ nav {
 
 .btn-dark {
     border-radius: 0%;
-    width: max-content;
+    line-height: normal;
     font-size: 100%;
-    padding: 1rem;
     margin: 0%;
     background-color: black;
     color: white;
     font-weight: 900;
+    white-space: nowrap;
 }
 
 .xdrop {
@@ -1904,4 +1904,9 @@ nav {
 }
 .logo svg{
     padding: 2%;
+}
+
+.grpx{
+    display: flex;
+    align-items: center;
 }

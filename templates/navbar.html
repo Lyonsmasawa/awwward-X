@@ -58,16 +58,18 @@
                 </p>
             </div>
 
-            <div class="three">
 
-                {% if request.user.is_authenticated %}
-                <div class="dropdown xdrop" style="max-width: 9rem;">
-                    <a class="nav-link dropdown-toggle xdr" href="#" id="navbarDropdown" role="button"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if request.user.is_authenticated %}
+            <div class="three">
+                <div class="dropdown xdrop">
+                    <a class="nav-link dropdown-toggle xdr" style="width: 9rem;" href="#" id="navbarDropdown"
+                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {% if request.user.profile.profile_photo %}
-                        <p>{{request.user.username}}</p>
-                        <img src=" {{ request.user.profile.profile_photo.url}}" class="rounded-circle z-depth-0" style="max-width:100%;
-                            max-height:100%;">
+                        <div class="grpx">
+                            <p>{{request.user.username}}</p>
+                            <p><img src=" {{ request.user.profile.profile_photo.url}}" class="rounded-circle z-depth-0">
+                            </p>
+                        </div>
                         {% else %}
                         <p><i class="fa fa-user-circle"></i></p>
                         {%endif%}
@@ -84,18 +86,19 @@
                     </div>
                 </div>
                 {% else %}
-                <div class="ilogin">
-                    <span>ARE YOU A MEMBER?</span>
-                    <strong><a class="text-black" href="{% url 'login' %}"><span class="ax">Register / log
-                                in</span></a></strong>
-                </div>
-                {% endif %}
+                <div class="three">
+                    <div class="ilogin">
+                        <span>ARE YOU A MEMBER?</span>
+                        <strong><a class="text-black" href="{% url 'login' %}"><span class="ax">Register / log
+                                    in</span></a></strong>
+                    </div>
+                    {% endif %}
 
-                <div>
-                    <a href="{% url 'submit-site' %}"><button class="btn btn-dark">SUBMIT YOUR SITE!</button></a>
-                </div>
+                    <div>
+                        <a href="{% url 'submit-site' %}"><button class="btn btn-dark">SUBMIT YOUR SITE!</button></a>
+                    </div>
 
+                </div>
             </div>
-        </div>
     </nav>
 </header>
