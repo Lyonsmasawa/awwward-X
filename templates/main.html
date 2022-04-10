@@ -22,6 +22,7 @@
 
     {% block style %}
     {% bootstrap_css %}
+    {{ block.super }}
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     {% endblock style %}
 

@@ -4,17 +4,19 @@
     font-family: 'Josefin Sans', sans-serif;
     box-sizing: border-box;
 }
-nav{
+
+nav {
     background-color: white;
 }
 
-.fullnav{
+.fullnav {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 100%;
     padding: 0%;
 }
+
 /* The sidebar menu */
 .sidebar {
     height: 100%;
@@ -125,30 +127,43 @@ nav{
     color: grey;
     font-size: .5rem;
 }
-.one{
+
+.one {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
+
 .oneone {
     border-right: 1px solid grey;
 }
-.ilogin, .ilogin a{
+
+.ilogin,
+.ilogin a {
     text-transform: uppercase;
     text-decoration: none;
 }
-.two{
-  
+
+.two {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
-.ax:hover{
+
+.ax:hover {
     color: grey;
     transition: .6s;
 }
 
-.three{
+.three {
     display: flex;
     align-items: center;
-    flex-basis: 100%;
     width: fit-content;
     margin: 0%;
-    font-size: 1rem;
+    font-size: 60%;
+}
+.btn-dark{
+    border-radius: 0%;
+    width: max-content;
+    font-size: 100%;
 }
