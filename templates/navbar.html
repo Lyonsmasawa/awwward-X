@@ -4,7 +4,7 @@
     <nav class="navbar navbar-expand-lg">
 
         <div class="one">
-            <div class="two">
+            <div class="oneone">
                 <div id="mySidebar" class="sidebar">
                     <div class="sx">
                         <span>English <span class="fas fa-flag-usa"></span></span>
@@ -29,20 +29,21 @@
         </div>
 
 
-        <div>
+        <div class="two">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <img src="{% static 'images/aw.png' %}" alt="Instagram">
             </a>
         </div>
 
-        <div>
-            <p>ARE YOU A MEMBER? <a href="{% url 'register' %}"><strong>REGISTER</strong></a> / <a
-                    href="{% url 'login' %}"><strong>LOG IN</strong></a></p>
-        </div>
-        <div>
-            <a href="{% url 'submit-site' %}"><strong>SUBMIT YOUR SITE!</strong></a>
-        </div>
-        <a href="{% url 'profile' request.user.id %}">profile - {{request.user.username}}</a>
+        <div class="three">
+            <div>
+                <p>ARE YOU A MEMBER? <a href="{% url 'register' %}"><strong>REGISTER</strong></a> / <a
+                        href="{% url 'login' %}"><strong>LOG IN</strong></a></p>
+            </div>
+            <div>
+                <a href="{% url 'submit-site' %}"><strong>SUBMIT YOUR SITE!</strong></a>
+            </div>
         </div>
     </nav>
 </header>
+<!-- <a href="{% url 'profile' request.user.id %}">profile - {{request.user.username}}</a> -->
