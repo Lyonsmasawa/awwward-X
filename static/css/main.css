@@ -1647,10 +1647,12 @@ nav {
 .fullnav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     padding: 0%;
 }
+
+
 
 /* The sidebar menu */
 .sidebar {
@@ -1753,15 +1755,7 @@ nav {
     color: transparent;
 }
 
-.searchx input[type=text]:focus {
-    width: 100%;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background: none;
-    padding: 5%;
-    color: grey;
-    font-size: .5rem;
-}
+
 
 .one {
     display: flex;
@@ -1898,4 +1892,16 @@ nav {
 }
 .smx{
     font-size: 1.2rem;
+}
+.searchx input[type=text]:focus {
+    width: max-content;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background: none;
+    padding: 5%;
+    color: grey;
+    font-size: 1rem;
+}
+.logo svg{
+    padding: 2%;
 }
