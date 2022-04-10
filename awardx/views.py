@@ -13,7 +13,11 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     projects = Project.objects.all()
 
-    context = {'projects': projects, }
+    get_by_score = Project.objects.filter().order_by('-average_score')
+    if get_by_score.count() > 0:
+        best = get_by_score[0]
+
+    context = {'projects': projects, 'best':best,}
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):
@@ -169,10 +173,8 @@ def submitSite(request):
     return render(request, 'awardx/submit_form.html', context)
 
 def projectPage(request, pk):
-    user = request.user.id
     project = Project.objects.get(id = pk)
     ratings = Rating.objects.filter(project = project)
-    has_voted = False
     form = RatingForm()
 
     if request.method == 'POST':
