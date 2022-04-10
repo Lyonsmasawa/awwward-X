@@ -169,6 +169,7 @@ def submitSite(request):
     return render(request, 'awardx/submit_form.html', context)
 
 def projectPage(request, pk):
+    user = request.user.id
     project = Project.objects.get(id = pk)
     ratings = Rating.objects.filter(project = project)
 
@@ -178,7 +179,7 @@ def projectPage(request, pk):
             data = form.save(commit=False)
             data.user = request.user
             data.project = project
-            data.average = (data.design + data.usability + data.content)/3
+            data.average = (data.design + data.usability + data.content+data.creativity)/4
             data.save()
     
 
@@ -186,6 +187,7 @@ def projectPage(request, pk):
     design_ratings = []
     usability_ratings = []
     content_ratings = []
+    creativity_ratings = []
     average = []
 
     for rating in ratings:
@@ -193,6 +195,7 @@ def projectPage(request, pk):
         design_ratings.append(rating.design)
         usability_ratings.append(rating.usability)
         content_ratings.append(rating.content)
+        creativity_ratings.append(rating.creativity)
         average.append(rating.average)
 
     ratings_count = ratings.count()
@@ -201,6 +204,7 @@ def projectPage(request, pk):
         project.average_design = sum(design_ratings)/ratings_count
         project.average_usability = sum(usability_ratings)/ratings_count
         project.average_content = sum(content_ratings)/ratings_count
+        project.average_content = sum(creativity_ratings)/ratings_count
 
         total_average = sum(average)/ratings_count
         project.average_score = total_average
