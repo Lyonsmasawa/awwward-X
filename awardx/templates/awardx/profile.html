@@ -68,12 +68,12 @@
         <p><strong>{{project_count}} Project's'</strong></p>
         <br>
         <div class="row images-list container justify-content-center">
-            {% for project in user_projects %}
             <div class="row">
+                {% for project in user_projects %}
                 <div class="col-md-3">
-                    <div class="card" style="width: 26rem;">
+                    <div class="card xcvx" style="max-width: 32rem;">
                         <a href="{% url 'project' project.id %}">
-                            <img src="{{project.image.url}}" class="card-img-top" alt="project image">
+                            <img src="{{project.image.url}}" class="card-img-top img-fluid" alt="project image">
                         </a>
                         <div class="card-body">
                             <h4 class="card-title"><strong>{{project.title}}</strong></h4>
@@ -97,9 +97,10 @@
                             </h7>
                         </div>
                     </div>
+                    <br>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>

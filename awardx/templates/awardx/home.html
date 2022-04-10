@@ -5,10 +5,10 @@
 <div class="container">
     <div class="row">
         {% for project in projects %}
-        <div class="col-md-3" style="width: 26rem;">
-            <div class="card h-100">
+        <div class="col-md-3">
+            <div class="card xcvx"style="max-width: 32rem;">
                 <a href="{% url 'project' project.id %}">
-                    <img src="{{project.image.url}}" class="card-img-top" alt="project image">
+                    <img src="{{project.image.url}}" class="card-img-top img-fluid" alt="project image">
                 </a>
                 <div class="card-body">
                     <h4 class="card-title"><strong>{{project.title}}</strong></h4>
@@ -32,6 +32,7 @@
                     </h7>
                 </div>
             </div>
+            <br>
         </div>
         {% endfor %}
     </div>
