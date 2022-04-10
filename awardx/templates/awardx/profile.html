@@ -36,7 +36,7 @@
         </div>
 
         <div class="photox" style="max-width: 50rem;">
-            {% if user.user_photo %}
+            {% if user.profile_photo %}
             <img src="{{user.profile_photo.url}}" alt="" class="rounded-circle" style="width: 20%">
             {% else %}
             <img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle" style="width: 20%">
@@ -73,12 +73,12 @@
                         <div class="card-body">
                             <h5 class="card-title">{{project.title}}</h5>
                             <div class="card">
-                                <img src="{{project.image.url}}" alt="image">
+                                <img src="{{project.image.url}}" alt="image" width="10%">
                             </div>
                             <p class="card-text">{{project.description}}</p>
                             <p>from {{project.location}} - - {{project.updated | date}}</p>
                             <a href="{{project.link}}" target="_blank">Visit</a>
-                            <a href="{% url 'user' project.owner.user.id %}">By {{project.owner.user.username}}</a>
+                            <a href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}}</a>
                         </div>
                     </div>
                 </div>
