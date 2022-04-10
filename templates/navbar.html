@@ -68,7 +68,8 @@
                         <div class="grpx">
                             <p class="cvb">{{request.user.username | upper}}</p>
                             <p>&nbsp;</p>
-                            <p><img src=" {{ request.user.profile.profile_photo.url}}" class="rounded-circle img-thumbnail" style="width: 9rem;">
+                            <p><img src=" {{ request.user.profile.profile_photo.url}}"
+                                    class="rounded-circle img-thumbnail" style="width: 9rem;">
                             </p>
                         </div>
                         {% else %}
@@ -93,13 +94,14 @@
                         <strong><a class="text-black" href="{% url 'login' %}"><span class="ax">Register / log
                                     in</span></a></strong>
                     </div>
-                    {% endif %}
-
-                    <div>
-                        <a href="{% url 'submit-site' %}"><button class="btn btn-dark">SUBMIT YOUR SITE!</button></a>
-                    </div>
-
                 </div>
+                {% endif %}
+
+                <div class="">
+                    <button class="btn btn-mx"><a class="text-white" href="{% url 'submit-site' %}">SUBMIT YOUR SITE!</a></button>
+                </div>
+
             </div>
+        </div>
     </nav>
 </header>

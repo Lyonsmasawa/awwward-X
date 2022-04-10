@@ -1911,3 +1911,12 @@ nav {
     justify-content: space-between;
     font-weight: 900;
 }
+.btn-mx{
+    color: white;
+    background-color: black;
+    white-space: nowrap;
+    margin: 0%;
+    font-weight: 900;
+    line-height: 2.5rem;
+    border-radius: 0%;
+}
