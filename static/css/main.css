@@ -184,12 +184,15 @@ nav {
     width: max-content;
     font-size: 100%;
     padding: 1rem;
+    margin: 0%;
 }
 .xdrop{
     width: 100%;
     padding: 0%;
     margin: 0%;
-    background-color: aqua;  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .xdr{
     background-color: aquamarine;
@@ -197,5 +200,4 @@ nav {
     width: 100%;
     align-items: center;
     justify-content: space-between;
-    font-size: 100%;
 }
