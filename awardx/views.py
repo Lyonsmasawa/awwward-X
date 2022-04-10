@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login ,logout
 from django.contrib.auth.models import User
 from .forms import CustomUserForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -38,7 +39,7 @@ def registerPage(request):
 
 def loginPage(request):
     page = 'login'
-    
+
     if request.user.is_authenticated:
         return redirect('home')
 
@@ -191,6 +192,20 @@ def projectPage(request, pk):
     
     context = {'project': project, 'form': form, 'ratings':ratings, 'ratings_count':ratings_count, 'raters':raters,}
     return render(request, 'awardx/project.html', context)
+
+@login_required(login_url='login')
+def deletePost(request, pk):
+    image = Image.objects.get(id=pk)
+
+    if request.user != image.owner.user:
+        return HttpResponse('This method is restricted')
+
+    if request.method == 'POST':
+        image.delete()
+        return redirect('home')
+    
+    context = {'obj':image}
+    return render(request, 'insta/delete.html', context)
 
 # def updateSite(request, pk):
 #     project = Project.objects.get(id = pk)
