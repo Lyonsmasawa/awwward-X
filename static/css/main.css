@@ -1748,7 +1748,8 @@ nav {
     width: 25%;
     border: none;
     background-color: none;
-    background-size: 1rem;
+    background-size: 1.5rem;
+    margin-left: 1rem;
     background-image: url('https://www.freeiconspng.com/uploads/search-icon-png-21.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -1887,6 +1888,7 @@ nav {
     background: none;
     padding: 5%;
     color: grey;
+    font-weight: 500;
     font-size: 1rem;
 }
 .logo svg{
@@ -1917,6 +1919,6 @@ nav {
     white-space: nowrap;
     margin: 0%;
     font-weight: 900;
-    line-height: 2.5rem;
+    line-height: 3.5rem;
     border-radius: 0%;
 }
