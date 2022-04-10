@@ -2,59 +2,61 @@
 {% load bootstrap5 %}
 
 {% block content %}
-<main class="create-image layout">
-    <div class="container">
-        <div class="layout__box">
-            <div class="layout__boxHeader">
-                <div class="layout__boxTitle">
-                    <a href="{{request.META.HTTP_REFERER}}">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
-                            viewBox="0 0 32 32">
-                            <title>arrow-left</title>
-                            <path
-                                d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
-                            </path>
-                        </svg>
-                    </a>
-                    <h3>Post Project</h3>
+<div class="container">
+    <div class="create-image layout">
+        <div class="container">
+            <div class="layout__box">
+                <div class="layout__boxHeader">
+                    <div class="layout__boxTitle">
+                        <a href="{{request.META.HTTP_REFERER}}">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                viewBox="0 0 32 32">
+                                <title>arrow-left</title>
+                                <path
+                                    d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z">
+                                </path>
+                            </svg>
+                        </a>
+                        <h3>Post Project</h3>
+                    </div>
                 </div>
-            </div>
-            <div class="layout__body">
-                <form class="form text-dark" action="" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
+                <div class="layout__body">
+                    <form class="form text-dark" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
 
-                    <div class="form__group">
-                        <label for="project">Image</label>
-                        {{form.image}}
-                    </div>
+                        <div class="form__group">
+                            <label for="project">Image</label>
+                            {{form.image}}
+                        </div>
 
-                    <div class="form__group">
-                        <label for="project_name">Title</label>
-                        {{form.title}}
-                    </div>
+                        <div class="form__group">
+                            <label for="project_name">Title</label>
+                            {{form.title}}
+                        </div>
 
-                    <div class="form__group">
-                        <label for="project_description">Description</label>
-                        {{form.description}}
-                    </div>
+                        <div class="form__group">
+                            <label for="project_description">Description</label>
+                            {{form.description}}
+                        </div>
 
-                    <div class="form__group">
-                        <label for="project_link">Link</label>
-                        {{form.link}}
-                    </div>
+                        <div class="form__group">
+                            <label for="project_link">Link</label>
+                            {{form.link}}
+                        </div>
 
-                    <div class="form__group">
-                        <label for="project_description">Location</label>
-                        {{form.location}}
-                    </div>
+                        <div class="form__group">
+                            <label for="project_description">Location</label>
+                            {{form.location}}
+                        </div>
 
-                    <div class="form__action">
-                        <a class="btn btn--dark" href="{{request.META.HTTP_REFERER}}">Cancel</a>
-                        <button class="btn" type="submit">Submit</button>
-                    </div>
-                </form>
+                        <div class="form__action">
+                            <a class="btn btn--main" href="{{request.META.HTTP_REFERER}}">Cancel</a>
+                            <button class="btn btn--main" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</main>
+</div>
 {% endblock content %}
