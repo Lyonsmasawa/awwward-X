@@ -173,6 +173,7 @@ def projectPage(request, pk):
     project = Project.objects.get(id = pk)
     ratings = Rating.objects.filter(project = project)
     has_voted = False
+    form = RatingForm()
 
     if request.method == 'POST':
         form = RatingForm(request.POST)
@@ -229,7 +230,7 @@ def deletePost(request, pk):
         return redirect('home')
     
     context = {'obj':project}
-    return render(request, 'insta/delete.html', context)
+    return render(request, 'awardx/delete.html', context)
 
 # def updateSite(request, pk):
 #     project = Project.objects.get(id = pk)
