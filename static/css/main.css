@@ -185,10 +185,17 @@ nav {
     font-size: 100%;
     padding: 1rem;
 }
-.userdets{
+.xdrop{
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+    background-color: aqua;  
+}
+.xdr{
+    background-color: aquamarine;
     display: flex;
+    width: 100%;
     align-items: center;
-    justify-content: space-around;
-    padding: 1%;
-    font-size: 1rem;
+    justify-content: space-between;
+    font-size: 100%;
 }
