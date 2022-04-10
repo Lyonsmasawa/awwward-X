@@ -172,6 +172,7 @@ def projectPage(request, pk):
     user = request.user.id
     project = Project.objects.get(id = pk)
     ratings = Rating.objects.filter(project = project)
+    has_voted = False
 
     if request.method == 'POST':
         form = RatingForm(request.POST)
@@ -204,7 +205,7 @@ def projectPage(request, pk):
         project.average_design = sum(design_ratings)/ratings_count
         project.average_usability = sum(usability_ratings)/ratings_count
         project.average_content = sum(content_ratings)/ratings_count
-        project.average_content = sum(creativity_ratings)/ratings_count
+        project.average_creativity = sum(creativity_ratings)/ratings_count
 
         total_average = sum(average)/ratings_count
         project.average_score = total_average
