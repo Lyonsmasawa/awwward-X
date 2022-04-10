@@ -1847,3 +1847,16 @@ nav {
     padding: .5rem 1.3rem;
     border-radius: 25px;
 }
+.btnc{
+    border-radius: 25px;
+    background-color: transparent;
+    border: 1px solid black;
+    color: black;
+    width: max-content;
+}
+
+.upone{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

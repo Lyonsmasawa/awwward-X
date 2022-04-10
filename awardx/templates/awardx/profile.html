@@ -4,87 +4,85 @@
 
 {% block content %}
 <div class="container prof container">
-    <div class="full-profile">
-        <div class="upone">
-            <div class="flolow">
+    <div class="upone">
+        <div class="social-icons">
+            <i class="fas fa-facebook"></i>
+            <i class="fas fa-twitter"></i>
+            <i class="fas fa-linkedin"></i>
+            <i class="fas fa-instagram"></i>
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+            {%if profile.user.username == request.user.username%}
 
-                <div class="social-icons">
-                    <i class="fas fa-facebook"></i>
-                    <i class="fas fa-twitter"></i>
-                    <i class="fas fa-linkedin"></i>
-                    <i class="fas fa-instagram"></i>
-                    <i class="fa fa-instagram" aria-hidden="true"></i>
-                    {%if profile.user.username == request.user.username%}
+            {% else%}
 
-                    {% else%}
-
-                    <div>
-                        {% if isFollowing %}
-                        {% if unfollow_form %}
-                        <form action="" method="post">
-                            {%csrf_token%}
-                            {% bootstrap_form unfollow_form%}
-                            <input type="submit" class=" btn btn-x" name="unfollow" value="following">
-                        </form>
-                        {% endif %}
-                        {% else %}
-                        {% if follow_form %}
-                        <form action="" method="post" >
-                            {%csrf_token%}
-                            {% bootstrap_form follow_form%}
-                            <input type="submit" class=" btn btn-x" name="follow" value="Follow">
-                        </form>
-                        {% endif %}
-                        {% endif %}
-                        {% endif %}
-                    </div>
-                </div>
-
-            </div>
-            <div class="container photo ">
-
-                {% if profile.profile_photo %}
-                <img src="{{profile.profile_photo.url}}" alt="" class="rounded-circle img-thumbnail" style="width:70%">
-                {% else %}
-                <img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle img-thumbnail"
-                    style="width:70%">
-                {%endif%}
-
-            </div>
             <div>
-                <div class="details">
-                    <h1>{{profile.user.username}}</h1>
-                    {%if profile.user.username == request.user.username%}
-                    <a href="{% url 'update-user' %}"><button class="btn btn--pill">Edit Profile <span
-                                class="mr-3 fa fa-cog"></span></button></a>
-                    {% endif %}
-                </div>
-
-
-                <div class="d-flex counts" style="margin-top: 2rem;">
-                    <div class="counts-det">
-                        <strong>{{posts_count}}</strong>
-                        <p>posts</p>
-                    </div>
-                    <div class="counts-det">
-                        <strong>{{profile.followers}}</strong>
-                        <p>followers</p>
-                    </div>
-                    <div class="counts-det">
-                        <strong>{{profile.following}}</strong>
-                        <p>following</p>
-                    </div>
-                </div>
+                {% if isFollowing %}
+                {% if unfollow_form %}
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {% bootstrap_form unfollow_form%}
+                    <input type="submit" class=" btn btn-x" name="unfollow" value="following">
+                </form>
+                {% endif %}
+                {% else %}
+                {% if follow_form %}
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {% bootstrap_form follow_form%}
+                    <input type="submit" class=" btn btn-x" name="follow" value="Follow">
+                </form>
+                {% endif %}
+                {% endif %}
+                {% endif %}
             </div>
-
-            <div class="">
-                <br>
-                <h4>{{user.bio}}</h4>
-            </div>
-
         </div>
 
+        <div class="container-fluid photo">
+            {% if profile.profile_photo %}
+            <img src="{{profile.profile_photo.url}}" alt="" class="rounded-circle img-thumbnail" style="width: 10%">
+            {% else %}
+            <img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle img-thumbnail" style="width: 10%">
+            {%endif%}
+        </div>
+
+        <div class="visitsite">
+            <a href="{{profile.mylink}}"><button class="btn btnc">Visit site</button></a>
+        </div>
     </div>
+    <div>
+        <div class="details">
+            <h1>{{profile.user.username}}</h1>
+            {%if profile.user.username == request.user.username%}
+            <a href="{% url 'update-user' %}"><button class="btn btn--pill">Edit Profile <span
+                        class="mr-3 fa fa-cog"></span></button></a>
+            {% endif %}
+        </div>
+
+
+        <div class="d-flex counts" style="margin-top: 2rem;">
+            <div class="counts-det">
+                <strong>{{posts_count}}</strong>
+                <p>posts</p>
+            </div>
+            <div class="counts-det">
+                <strong>{{profile.followers}}</strong>
+                <p>followers</p>
+            </div>
+            <div class="counts-det">
+                <strong>{{profile.following}}</strong>
+                <p>following</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="">
+        <br>
+        <h4>{{user.bio}}</h4>
+    </div>
+
+</div>
+
+</div>
 </div>
 
 <div class="container">
