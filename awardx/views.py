@@ -1,4 +1,5 @@
 from multiprocessing import context
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Follow, Profile, Project, Rating
 from .forms import ProfileForm, ProjectForm, RatingForm, UnFollowForm, FollowForm
@@ -195,16 +196,16 @@ def projectPage(request, pk):
 
 @login_required(login_url='login')
 def deletePost(request, pk):
-    image = Image.objects.get(id=pk)
+    project = Project.objects.get(id=pk)
 
-    if request.user != image.owner.user:
+    if request.user != project.owner.user:
         return HttpResponse('This method is restricted')
 
     if request.method == 'POST':
-        image.delete()
+        project.delete()
         return redirect('home')
     
-    context = {'obj':image}
+    context = {'obj':project}
     return render(request, 'insta/delete.html', context)
 
 # def updateSite(request, pk):
