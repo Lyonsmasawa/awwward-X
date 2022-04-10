@@ -1930,14 +1930,16 @@ nav {
     height: 18vw;
     object-fit: cover;
 }
-.frate{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+
 .btny{
     border-radius: 50px;
     color: black;
     font-size: 1.1rem;
     outline: 2px solid mediumaquamarine;
+}
+
+.frate{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
