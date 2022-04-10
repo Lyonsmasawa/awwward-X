@@ -7,13 +7,12 @@
     <div class="upone">
         <div class="social-icons ">
             <i class="fa-brands fa-facebook trxz"><a href="#"></a></i>&nbsp;
-            <i class="fa-brands fa-twitter trxz" ><a href="#"></a></i>&nbsp;
+            <i class="fa-brands fa-twitter trxz"><a href="#"></a></i>&nbsp;
             <i class="fa-brands fa-linkedin trxz"><a href="#"></a></i>&nbsp;
             <i class="fa-brands fa-instagram trxz"><a href="#"></a></i>&nbsp;
-            {%if profile.user.username == request.user.username%}
+            {%if user.user.username == request.user.username%}
 
             {% else%}
-
             <div>
                 {% if isFollowing %}
                 {% if unfollow_form %}
@@ -32,82 +31,60 @@
                 </form>
                 {% endif %}
                 {% endif %}
-                {% endif %}
             </div>
+            {% endif %}
         </div>
 
         <div class="photox" style="max-width: 50rem;">
-            {% if profile.profile_photo %}
-            <img src="{{profile.profile_photo.url}}" alt="" class="rounded-circle" style="width: 20%">
+            {% if user.user_photo %}
+            <img src="{{user.profile_photo.url}}" alt="" class="rounded-circle" style="width: 20%">
             {% else %}
             <img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle" style="width: 20%">
             {%endif%}
         </div>
 
         <div class="visitsite">
-            <a href="{{profile.mylink}}"><button class="btn btnc">Visit site</button></a>
+            <a href="{{user.my_link}}"><button class="btn btnc">Visit site</button></a>
         </div>
     </div>
-    <div>
-        <div class="details">
-            <h1>{{profile.user.username}}</h1>
-            {%if profile.user.username == request.user.username%}
-            <a href="{% url 'update-user' %}"><button class="btn btn--pill">Edit Profile <span
-                        class="mr-3 fa fa-cog"></span></button></a>
-            {% endif %}
-        </div>
-
-
-        <div class="d-flex counts" style="margin-top: 2rem;">
-            <div class="counts-det">
-                <strong>{{posts_count}}</strong>
-                <p>posts</p>
-            </div>
-            <div class="counts-det">
-                <strong>{{profile.followers}}</strong>
-                <p>followers</p>
-            </div>
-            <div class="counts-det">
-                <strong>{{profile.following}}</strong>
-                <p>following</p>
-            </div>
-        </div>
+    <br>
+    <div class="detailsz">
+        <h1 class="text-center">{{user.user.username}} <a href="{{user.my_link}}"><i class="fa fa-share"
+                    aria-hidden="true"></i></a></h1>
+        <br>
+        {%if user.user.username == request.user.username%}
+        <a href="{% url 'update-user' %}"><button class="btn btn--pill">Edit user <span
+                    class="mr-3 fa fa-cog"></span></button></a>
+        {% endif %}
+        <p></p>
+        <p class="text-center p-1">{{user.bio}}</p>
     </div>
 
-    <div class="">
-        <br>
-        <h4>{{user.bio}}</h4>
-    </div>
 
-</div>
-
-</div>
-</div>
-
-<div class="container">
-    <div class="row images-list container justify-content-centre">
-        <br>
-        <br>
-        <hr>
-        {% for project in user_projects %}
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{project.title}}</h5>
-                        <div class="card">
-                            <img src="{{project.image.url}}" alt="image">
+    <div class="container">
+        <div class="row images-list container justify-content-centre">
+            <br>
+            <br>
+            <hr>
+            {% for project in user_projects %}
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{project.title}}</h5>
+                            <div class="card">
+                                <img src="{{project.image.url}}" alt="image">
+                            </div>
+                            <p class="card-text">{{project.description}}</p>
+                            <p>from {{project.location}} - - {{project.updated | date}}</p>
+                            <a href="{{project.link}}" target="_blank">Visit</a>
+                            <a href="{% url 'user' project.owner.user.id %}">By {{project.owner.user.username}}</a>
                         </div>
-                        <p class="card-text">{{project.description}}</p>
-                        <p>from {{project.location}} - - {{project.updated | date}}</p>
-                        <a href="{{project.link}}" target="_blank">Visit</a>
-                        <a href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}}</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
-</div>
-{% endfor %}
 {% endblock content %}
