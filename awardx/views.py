@@ -196,15 +196,18 @@ def projectPage(request, pk):
         average.append(rating.average)
 
     ratings_count = ratings.count()
-    project.average_design = sum(design_ratings)/ratings_count
-    project.average_usability = sum(usability_ratings)/ratings_count
-    project.average_content = sum(content_ratings)/ratings_count
-    
-    total_average = sum(average)/ratings_count
-    project.average_score = total_average
-    project.save()
 
-    form = RatingForm()
+    if ratings_count > 0:
+        project.average_design = sum(design_ratings)/ratings_count
+        project.average_usability = sum(usability_ratings)/ratings_count
+        project.average_content = sum(content_ratings)/ratings_count
+
+        total_average = sum(average)/ratings_count
+        project.average_score = total_average
+        project.save()
+
+    else:
+        form = RatingForm()
     
     context = {'project': project, 'form': form, 'ratings':ratings, 'ratings_count':ratings_count, 'raters':raters,}
     return render(request, 'awardx/project.html', context)
