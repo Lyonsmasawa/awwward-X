@@ -14,8 +14,8 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='profiles/')
     bio = models.TextField()
     my_link = models.URLField()
-    followers = models.IntegerField(default=0)
-    following = models.IntegerField(default=0)
+    followers = models.IntegerField(blank=True, null=True)
+    following = models.IntegerField(blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures
    
@@ -39,10 +39,10 @@ class Project(models.Model):
     description = models.TextField()
     link = models.URLField()
     location = models.CharField(max_length=20)
-    average_design = models.FloatField(default=0, blank=True, null=True)
-    average_usability = models.FloatField(default=0,  blank=True, null=True)
-    average_content = models.FloatField(default=0, blank=True, null=True)
-    average_score = models.FloatField(default=0, blank=True, null=True)
+    average_design = models.FloatField( blank=True, null=True)
+    average_usability = models.FloatField(  blank=True, null=True)
+    average_content = models.FloatField( blank=True, null=True)
+    average_score = models.FloatField( blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures
    
@@ -81,10 +81,10 @@ class Rating(models.Model):
     # TODO: Define fields here
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    design = models.IntegerField(default=0)
-    usability = models.IntegerField(default=0)
-    content = models.IntegerField(default=0)
-    average = models.FloatField(default=0)
+    design = models.IntegerField(null=True)
+    usability = models.IntegerField(null=True)
+    content = models.IntegerField(null=True)
+    average = models.FloatField(null=True)
     when = models.DateTimeField(auto_now_add=True)
 
     class Meta:
