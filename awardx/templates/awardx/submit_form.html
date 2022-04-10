@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="layout__body">
-                    <form class="form text-dark" action="" method="post" enctype="multipart/form-data">
+                    <form class="form text-dark" action="{% url 'submit-site' %}" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
 
                         <div class="form__group">
