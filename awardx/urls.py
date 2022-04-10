@@ -13,6 +13,7 @@ urlpatterns = [
     path('login/', views.loginPage, name="login"),
     path('register/', views.registerPage, name="register"),
     path('project/<str:pk>', views.projectPage, name="project"),
+    path('logout/', views.logoutUser, name="logout"),
 ]
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
