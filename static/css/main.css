@@ -1,3 +1,10 @@
+@import url('http://fonts.cdnfonts.com/css/apercu');
+
+* {
+  font-family: 'Apercu', sans-serif;
+  font-family: 'Apercu Mono', sans-serif;
+}
+
  /* The sidebar menu */
  .sidebar {
      height: 100%;
@@ -43,7 +50,7 @@
      padding-left: 1rem;
      padding-right: .5rem;
  }
- 
+
  .sx .fa-times{
      font-size: 1.5rem;
  }
@@ -52,22 +59,17 @@
      color: lightblue;
  }
 
- /* Position and style the close button (top right corner) */
-
-  
-
  /* The button used to open the sidebar */
  .openbtn {
-     font-size: 20px;
      cursor: pointer;
-     background-color: #111;
-     color: white;
-     padding: 10px 15px;
+     color: black;
+     font-weight: 900;
      border: none;
  }
 
  .openbtn:hover {
-     background-color: #444;
+     font-weight: 500;
+     transition: 1s;
  }
 
  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
