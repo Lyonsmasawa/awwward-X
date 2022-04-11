@@ -284,7 +284,7 @@ def search(request):
 #     context = {'form': form, }
 #     return render(request, 'awardx/submit_form.html', context)
 
-class ProfileList(APIView):
+class profileList(APIView):
 
     def get(self ,request, format = None):
         all_profiles =  Profile.objects.all()
@@ -292,7 +292,7 @@ class ProfileList(APIView):
         
         return Response(serializers.data) 
 
-class ProjectList(APIView):
+class projectList(APIView):
 
     def get(self, request, format = None):
         all_projects =  Project.objects.all()
