@@ -1577,7 +1577,7 @@ input.nosub {
     z-index: 4;
     display: flex;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
 }
 
@@ -1592,6 +1592,17 @@ input.nosub {
     font-weight: 900;
     font-size: 1.25rem;
 }
+.delkey{
+    float: right;
+    margin-right: .8rem;
+}
+.visit-site button {
+    white-space: nowrap;
+    outline: 1px solid aquamarine;
+    border: none;
+}
+
+
 .pbg{
     color: black;
     font-size: 2rem;

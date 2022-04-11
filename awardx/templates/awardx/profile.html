@@ -63,7 +63,7 @@
     </div>
 
 
-    <div class="container-fluid">
+    <div class="container">
         <hr>
         <p><strong>{{project_count}} Project's'</strong></p>
         <br>
@@ -72,9 +72,9 @@
                 {% for project in user_projects %}
                 <div class="col-md-3">
                     <div class="card xcvx" style="max-width: 32rem;">
-                        <div class="d-flex opt">
+                        <div>
                             {% if request.user == project.owner.user %}
-                            <a href="{% url 'delete-post' project.id %}"><i class="fa fa-times"></i></a>
+                            <a  class="delkey" href="{% url 'delete-post' project.id %}"><i class="fa fa-times"></i></a>
                             {% endif %}
                         </div>
                         <a href="{% url 'project' project.id %}">
