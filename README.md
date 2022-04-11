@@ -1,4 +1,4 @@
-# InstaX
+# AwwardX
 
 ## Description
 This is an awwwards clone where the user can perform the same functions as the ones on the real awwwards.com site
