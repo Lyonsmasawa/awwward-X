@@ -68,6 +68,8 @@
     </div>
 </div>
 <p></p>
+
+{% if request.user.is_authenticated %}
 <div class="">
     {% if request.user == project.owner.user %}
     <div class="container">
@@ -112,6 +114,10 @@
     {% endif %}
 
 </div>
+{% else %}
+<p class="container">Please login to rate project</p>
+{% endif %}
+
 <br>
 <div class="container">
     <div class="screenshots-img">

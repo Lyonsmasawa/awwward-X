@@ -18,9 +18,6 @@ from .serializer import  ProfileSerializer, ProjectSerializer
 def home(request):
     projects = Project.objects.all()
     date = datetime.date.today()
-    raters = []
-    best = False
-    pq = 0
 
     q = request.GET.get('q')
     if request.GET.get('q') != None:
@@ -30,21 +27,14 @@ def home(request):
         )
         pq = projects.count()
         q=True
+        best = False
 
     else:
         get_by_score = Project.objects.filter().order_by('-average_score')
         if get_by_score.count() > 0:
             print("test")
             best = get_by_score[0]
-            print(best.id)
-            projectx = Project.objects.get(id = best.id)
-            ratings = projectx.rating_set.all()
-            print(ratings)
-            ratings_count = ratings.count()
-            print(ratings_count)
-            for rating in ratings:
-                raters.append(rating.user)
-            
+            pq = 0
            
         
         
