@@ -201,7 +201,7 @@ def projectPage(request, pk):
             data.project = project
             data.average = (data.design + data.usability + data.content+data.creativity)/4
             data.save()
-            return redirect( 'project', pk)
+            return redirect( 'project', pk) 
     
 
     raters = []
