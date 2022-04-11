@@ -71,11 +71,9 @@
 </div>
 {%endif%}
 <p></p>
-<p class="m-3 pbg">
-    We need your vote! <strong>please click on a project image to rate it</strong> <i class="fa fa-walking cnm"></i>
-<br>
-<strong>Nominees </strong>
-</p>
+
+{% if q %}
+<p class="text-center">{{pq}} result's' found </p>
 <div class="container">
     <div class="row container justify-content-center">
         {% for project in projects %}
@@ -111,4 +109,47 @@
         {% endfor %}
     </div>
 </div>
+{% else %}
+<p class="m-3 pbg">
+    We need your vote! <strong>please click on a project image to rate it</strong> <i class="fa fa-walking cnm"></i>
+    <br>
+    <strong>Nominees </strong>
+</p>
+
+<div class="container">
+    <div class="row container justify-content-center">
+        {% for project in projects %}
+        <div class="col-md-3">
+            <div class="card xcvx" style="max-width: 32rem;">
+                <a href="{% url 'project' project.id %}">
+                    <img src="{{project.image.url}}" class="card-img-top img-fluid" alt="project image">
+                </a>
+                <div class="card-body">
+                    <h4 class="card-title"><strong>{{project.title}}</strong></h4>
+                </div>
+                <div class="locdate container">
+                    <small class="card-text">From {{project.location}}</small>
+                    <small>{{project.updated | date}}</small>
+                </div>
+                <div class="card-body container">
+                    <h7>
+                        <span>
+                            {% if project.owner.profile_photo %}
+                            <img src="{{project.owner.profile_photo.url}}" alt="" class="rounded-circle"
+                                style="width: 10%">
+                            {% else %}
+                            <img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle"
+                                style="width: 10%">
+                            {%endif%}
+                        </span><a href="{% url 'profile' project.owner.user.id %}" class="card-link smx">By
+                            <strong>{{project.owner.user.username | upper}}</strong></a>
+                    </h7>
+                </div>
+            </div>
+            <br>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
 {% endblock content %}

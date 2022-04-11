@@ -20,6 +20,7 @@ def home(request):
     date = datetime.date.today()
     raters = []
     best = False
+    pq = 0
 
     q = request.GET.get('q')
     if request.GET.get('q') != None:
@@ -27,6 +28,8 @@ def home(request):
             Q(title__icontains = q) |
             Q(owner__user__username__icontains = q) 
         )
+        pq = projects.count()
+        q=True
 
     else:
         get_by_score = Project.objects.filter().order_by('-average_score')
@@ -45,7 +48,7 @@ def home(request):
            
         
         
-    context = {'projects': projects, 'best':best, 'date':date,}
+    context = {'projects': projects, 'best':best, 'date':date, 'q':q, 'pq':pq, }
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):
