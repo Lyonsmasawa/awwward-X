@@ -2106,3 +2106,9 @@ nav {
 .pxsec{
     height: 40vh;
 }
+
+.finx{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
