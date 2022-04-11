@@ -72,6 +72,11 @@
                 {% for project in user_projects %}
                 <div class="col-md-3">
                     <div class="card xcvx" style="max-width: 32rem;">
+                        <div class="d-flex opt">
+                            {% if request.user == project.owner.user %}
+                            <a href="{% url 'delete-post' project.id %}"><i class="fa fa-times"></i></a>
+                            {% endif %}
+                        </div>
                         <a href="{% url 'project' project.id %}">
                             <img src="{{project.image.url}}" class="card-img-top img-fluid" alt="project image">
                         </a>

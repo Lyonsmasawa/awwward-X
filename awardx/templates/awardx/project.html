@@ -103,7 +103,18 @@
 </div>
 <br>
 <div class="container">
-    <h5>Ratings</h5>
+    <div class="screenshots-img">
+        <div class="row container justify-content-center finx">
+            <h5 class="text-center">Screenshots</h5>
+            <div class="col-md-4">
+                <img src="{{project.image.url}}" class="card-img-top img-fluid" alt="project image">
+            </div>
+            <div class="col-md-4">
+                <img src="{{project.image2.url}}" class="card-img-top img-fluid" alt="project image">
+            </div>
+        </div>
+    </div>
+    <h5><strong>Ratings</strong></h5>
     <p>{{ratings_count}} review's'</p>
     <div class="pcv">
         {% for rating in ratings %}
@@ -130,17 +141,6 @@
         </div>
         <hr>
         {% endfor %}
-    </div>
-    <div class="screenshots-img">
-        <div class="row container justify-content-center finx">
-            <h5 class="text-center">Screenshots</h5>
-            <div class="col-md-4">
-                <img src="{{project.image.url}}" class="card-img-top img-fluid" alt="project image">
-            </div>
-            <div class="col-md-4">
-                <img src="{{project.image2.url}}" class="card-img-top img-fluid" alt="project image">
-            </div>
-        </div>
     </div>
 </div>
 

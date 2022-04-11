@@ -263,7 +263,7 @@ def deletePost(request, pk):
 def search(request):
     pass
 
-# def updateSite(request, pk):
+# def updatePost(request, pk):
 #     project = Project.objects.get(id = pk)
 
 #     if request.method == 'POST':
