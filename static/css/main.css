@@ -2098,7 +2098,9 @@ nav {
     font-size: 1.1rem;
     outline: 2px solid mediumaquamarine;
 }
-
+.cnm{
+    color: red;
+}
 .btn-center{
     margin-left: 4rem;
 }
