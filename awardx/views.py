@@ -46,6 +46,9 @@ def home(request):
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):
+    if request.user.is_authenticated:
+        logout(request)
+        
     if request.method == 'POST':
         form = CustomUserForm(request.POST)
         if form.is_valid():
