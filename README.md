@@ -1,7 +1,7 @@
 # InstaX
 
 ## Description
-This is an instagram clone where the user can perform functions same as the ones on the real Instagram, e.g. Post, Like, Follow e.t.c.
+This is an awwwards clone where the user can perform functions same as the ones on the real awwwards.com
 
 ### Login view
 <img src="login.png"> 
@@ -69,7 +69,7 @@ The following languages have been used on this project:
 
 ## Setup/Installation Requirements
 
-- Click to view <a target="_blank" href="https://instaxl.herokuapp.com/">InstaX</a>
+- Click to view <a target="_blank" href="https://awward-x.herokuapp.com/">AWWARD-X</a>
     
 ## Known Bugs
 
