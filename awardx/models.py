@@ -4,6 +4,7 @@ from turtle import title
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Profile(models.Model):
@@ -86,10 +87,22 @@ class Rating(models.Model):
     # TODO: Define fields here
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    design = models.IntegerField(null=True)
-    usability = models.IntegerField(null=True)
-    content = models.IntegerField(null=True)
-    creativity = models.IntegerField(null=True)
+    design = models.IntegerField(null=True, validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ])
+    usability = models.IntegerField(null=True, validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ])
+    content = models.IntegerField(null=True, validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ])
+    creativity = models.IntegerField(null=True, validators=[
+            MaxValueValidator(10),
+            MinValueValidator(1)
+        ])
     average = models.FloatField(null=True)
     when = models.DateTimeField(auto_now_add=True)
 

@@ -1536,6 +1536,7 @@ input.nosub {
     display: flex;
     justify-content: center;
     align-content: center;
+    margin-bottom: 1rem;
 }
 
 .ratebox {
@@ -2104,11 +2105,13 @@ nav {
     justify-content: space-between;
 }
 .pxsec{
-    height: 40vh;
+    height: 50vh;
+   
 }
 
 .finx{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 2rem;
 }
