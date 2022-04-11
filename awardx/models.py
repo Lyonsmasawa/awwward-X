@@ -38,6 +38,7 @@ class Project(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=20)
     image = models.ImageField(upload_to='projects/')
+    image2 = models.ImageField(upload_to='projects/', null = True)
     description = models.TextField()
     link = models.URLField()
     location = models.CharField(max_length=20)
