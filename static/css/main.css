@@ -1500,21 +1500,6 @@ input.nosub {
     z-index: 1;
 }
 
-.overlayx {
-    width: 100%;
-    height: 70vh;
-    position: relative;
-    background-color: black;
-    opacity: .8;
-}
-
-.innerlay {
-    width: 100%;
-    height: 70vh;
-    position: relative;
-    opacity: 1;
-}
-
 .sections-one {
     position: relative;
     z-index: 2;
@@ -1542,7 +1527,6 @@ input.nosub {
     font-size: 1.5rem;
     color: white;
     font-weight: 300;
-    background-color: black !important;
 }
 
 .details-x a {
@@ -1575,11 +1559,6 @@ input.nosub {
     letter-spacing: 0.5rem;
 }
 
-.section-three {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
-}
 
 .stdx {
     position: absolute;
@@ -1601,24 +1580,31 @@ input.nosub {
     font-size: 3.5rem;
 }
 
-.voters {
+
+.visit-site {
+    position: absolute;
+    bottom: 2rem;
+    padding: 0% 4%;
+    z-index: 4;
     display: flex;
     align-items: center;
-    position: absolute;
-    bottom: 4rem;
-    right: 2rem;
-    padding-right: inherit;
-    z-index: 2;
+    width: 100vw;
+    justify-content: space-between;
+}
+.visit-site button{
+    white-space: nowrap;
+    background-color: rgba(102, 205, 171, 0.685);
+    color: white;
+    outline: none;
+    border: none;
+}
+.visit-site button a{
+    color: white;
+    font-weight: 900;
+    font-size: 1.25rem;
 }
 
-.voters img {
-    width: 4.5rem;
-    height: 4.5rem;
-    margin-right: 1.2rem;
-    border-radius: 50%;
-    z-index: 2;
-    object-fit: cover;
-}
+
 
 @media (max-width: 425px) {
     .sections {

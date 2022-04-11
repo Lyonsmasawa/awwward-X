@@ -3,62 +3,66 @@
 
 {% block content %}
 {% if best %}
-<div class="sections" style="background-image: url('{{best.image.url}}');">
-    <div class="overlayx">
-        <div class="innerlay">
-            <div class="section-one">
-                <strong class="stdx">
-                    <p><strong>Site of the day</strong> <span>{{date}}</span></p>
-                </strong>
+<div class="sections" style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{best.image.url}}') no-repeat center; background-size: cover;">
+
+    <div class="section-one">
+        <strong class="stdx">
+            <p><strong>Site of the day</strong> <span>{{date}}</span></p>
+        </strong>
+    </div>
+
+    <div class="section-two">
+        <div class="secxz">
+            <a href="{% url 'project' best.id %}"><span class="qws">{{best.owner.user.username}}</span> -
+                {{best.title}}</a>
+        </div>
+        <div class="details-x">
+            BY
+            <a href="{% url 'profile' best.owner.user.id %}">{{best.owner.user.username | upper}}</a>
+            FROM
+            {{best.owner.location | upper}} WITH <span
+                class="text-red"><strong>{{best.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
+        </div>
+
+        <div class="d-flex rates-x">
+            <p></p>
+            <div>
+                <div class="ratebox">
+                    <p>{{best.average_design|stringformat:'f'|slice:"0:4"}}</p>
+                </div>
+                <p class="pzxc">design</p>
             </div>
-
-            <div class="section-two">
-                <div class="secxz">
-                    <a href="{% url 'project' best.id %}"><span class="qws">{{best.owner.user.username}}</span> -
-                        {{best.title}}</a>
+            <div>
+                <div class="ratebox">
+                    <p>{{best.average_usability|stringformat:'f'|slice:"0:4"}}</p>
                 </div>
-                <div class="details-x">
-                    BY
-                    <a href="{% url 'profile' best.owner.user.id %}">{{best.owner.user.username | upper}}</a>
-                    FROM
-                    {{best.owner.location | upper}} WITH <span
-                        class="text-red"><strong>{{best.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
-                </div>
-
-                <div class="d-flex rates-x">
-                    <p></p>
-                    <div>
-                        <div class="ratebox">
-                            <p>{{best.average_design|stringformat:'f'|slice:"0:4"}}</p>
-                        </div>
-                        <p class="pzxc">design</p>
-                    </div>
-                    <div>
-                        <div class="ratebox">
-                            <p>{{best.average_usability|stringformat:'f'|slice:"0:4"}}</p>
-                        </div>
-                        <p class="pzxc">usability</p>
-                    </div>
-                    <div>
-                        <div class="ratebox">
-                            <p>{{best.average_content|stringformat:'f'|slice:"0:4"}}</p>
-                        </div>
-                        <p class="pzxc">content</p>
-                    </div>
-                    <div>
-                        <div class="ratebox">
-                            <p>{{best.average_creativity|stringformat:'f'|slice:"0:4"}}</p>
-                        </div>
-                        <p class="pzxc">creativity</p>
-                    </div>
-                </div>
+                <p class="pzxc">usability</p>
             </div>
-
+            <div>
+                <div class="ratebox">
+                    <p>{{best.average_content|stringformat:'f'|slice:"0:4"}}</p>
+                </div>
+                <p class="pzxc">content</p>
+            </div>
+            <div>
+                <div class="ratebox">
+                    <p>{{best.average_creativity|stringformat:'f'|slice:"0:4"}}</p>
+                </div>
+                <p class="pzxc">creativity</p>
+            </div>
         </div>
     </div>
+
+    <div class="visit-site">
+        <button class="btn btnc"><a href="{{best.link}}">Visit site</a></button>
+        <p><a href="{% url 'profile' best.owner.id %}"><img src="{{best.owner.profile_photo.url}}" style="width: 9rem;"></a></p>
+    </div>
+ 
+
 </div>
 {%endif%}
 
+<p class="m-3"><strong>Nominees </strong> We need your vote!</p>
 <br>
 <div class="container">
     <div class="row">
