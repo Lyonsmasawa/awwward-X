@@ -62,7 +62,7 @@
             <a href="{% url 'profile' project.owner.user.id %}"><img src=" {{ project.owner.profile_photo.url}}"
                     class="rounded-circle img-thumbnail" style="width: 5rem;"></a>
             {% else %}
-            <p><i class="fa fa-user-circle rounded-circle img-thumbnail" style="width: 5rem;"></i></p>
+            <p><i class="fa fa-user-circle rounded-circle img-thumbnail"></i></p>
             {%endif%}
         </p>
     </div>
@@ -115,7 +115,7 @@
 
 </div>
 {% else %}
-<p class="container">Please login to rate project</p>
+<p class="container"><strong class="text-redx">Please login to rate project</strong></p>
 {% endif %}
 
 <br>
