@@ -2152,7 +2152,7 @@ nav {
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     .sections{
-        height: 60vh;
+        height: 50vh;
         font-size: 70%;
     }
   } 
