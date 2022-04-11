@@ -1,7 +1,7 @@
 # InstaX
 
 ## Description
-This is an awwwards clone where the user can perform functions same as the ones on the real awwwards.com
+This is an awwwards clone where the user can perform the same functions as the ones on the real awwwards.com site
 
 ### Profile
 <img src="login.png"> 
