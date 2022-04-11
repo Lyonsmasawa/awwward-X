@@ -2,13 +2,20 @@
 {% load bootstrap5 %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="sections pxsec container-fluid"
-        style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{project.image.url}}') no-repeat center; background-size: cover;">
-        <div class="section-two">
+<div class="sections"
+    style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{project.image.url}}') no-repeat center; background-size: cover;">
+    <div class="section-one">
+        <strong class="stdx">
+            <p><strong>Submitted: </strong> <span>{{project.created}}</span></p>
+        </strong>
+    </div>
+
+    <div class="section-two">
+        <a href="{% url 'project' project.id %}">
             <div class="secxz">
                 <a href="{% url 'project' project.id %}"><span class="qws">{{project.owner.user.username}}</span> -
-                    {{project.title}}</a>
+                    {{project.title}}
+                </a>
             </div>
             <p></p>
             <div class="details-x">
@@ -18,42 +25,46 @@
                 {{project.owner.location | upper}} WITH &nbsp;<span
                     class=" btn btny text-redx"><strong>{{project.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
             </div>
-
-            <div class="d-flex rates-x">
-                <p></p>
-                <div>
-                    <div class="ratebox">
-                        <p>{{project.average_design|stringformat:'f'|slice:"0:4"}}</p>
-                    </div>
-                    <p class="pzxc">design</p>
+        </a>
+        <div class="d-flex rates-x">
+            <p></p>
+            <div>
+                <div class="ratebox">
+                    <p>{{project.average_design|stringformat:'f'|slice:"0:4"}}</p>
                 </div>
-                <div>
-                    <div class="ratebox">
-                        <p>{{project.average_usability|stringformat:'f'|slice:"0:4"}}</p>
-                    </div>
-                    <p class="pzxc">usability</p>
+                <p class="pzxc">design</p>
+            </div>
+            <div>
+                <div class="ratebox">
+                    <p>{{project.average_usability|stringformat:'f'|slice:"0:4"}}</p>
                 </div>
-                <div>
-                    <div class="ratebox">
-                        <p>{{project.average_content|stringformat:'f'|slice:"0:4"}}</p>
-                    </div>
-                    <p class="pzxc">content</p>
+                <p class="pzxc">usability</p>
+            </div>
+            <div>
+                <div class="ratebox">
+                    <p>{{project.average_content|stringformat:'f'|slice:"0:4"}}</p>
                 </div>
-                <div>
-                    <div class="ratebox">
-                        <p>{{project.average_creativity|stringformat:'f'|slice:"0:4"}}</p>
-                    </div>
-                    <p class="pzxc">creativity</p>
+                <p class="pzxc">content</p>
+            </div>
+            <div>
+                <div class="ratebox">
+                    <p>{{project.average_creativity|stringformat:'f'|slice:"0:4"}}</p>
                 </div>
+                <p class="pzxc">creativity</p>
             </div>
         </div>
-        <p></p>
-        <div class="visit-site">
-            <button class="btn btnc"><a href="{{project.link}}">Visit site</a></button>
-            <p>
+    </div>
 
-            </p>
-        </div>
+    <div class="visit-site">
+        <button class="btn btnc"><a href="{{project.link}}">Visit site</a></button>
+        <p>
+            {% if project.owner.profile_photo %}
+            <a href="{% url 'profile' project.owner.user.id %}"><img src=" {{ project.owner.profile_photo.url}}"
+                    class="rounded-circle img-thumbnail" style="width: 5rem;"></a>
+            {% else %}
+            <p><i class="fa fa-user-circle rounded-circle img-thumbnail" style="width: 5rem;"></i></p>
+            {%endif%}
+        </p>
     </div>
 </div>
 <p></p>
@@ -101,7 +112,7 @@
     {% endif %}
 
 </div>
-<br> 
+<br>
 <div class="container">
     <div class="screenshots-img">
         <div class="row container justify-content-center finx">
