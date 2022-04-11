@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from .forms import CustomUserForm
 from django.contrib.auth.decorators import login_required
 import datetime
+from django.db.models import Q
 
 # Create your views here.
 def home(request):
@@ -17,18 +18,26 @@ def home(request):
     raters = []
     best = False
 
-    get_by_score = Project.objects.filter().order_by('-average_score')
-    if get_by_score.count() > 0:
-        print("test")
-        best = get_by_score[0]
-        print(best.id)
-        projectx = Project.objects.get(id = 4)
-        ratings = projectx.rating_set.all()
-        print(ratings)
-        ratings_count = ratings.count()
-        print(ratings_count)
-        for rating in ratings:
-            raters.append(rating.user)
+    q = request.GET.get('q')
+    if request.GET.get('q') != None:
+        projects = Project.objects.filter(
+            Q(title__icontains = q) |
+            Q(owner__user__username__icontains = q) 
+        )
+
+    else:
+        get_by_score = Project.objects.filter().order_by('-average_score')
+        if get_by_score.count() > 0:
+            print("test")
+            best = get_by_score[0]
+            print(best.id)
+            projectx = Project.objects.get(id = 4)
+            ratings = projectx.rating_set.all()
+            print(ratings)
+            ratings_count = ratings.count()
+            print(ratings_count)
+            for rating in ratings:
+                raters.append(rating.user)
             
            
         
@@ -250,6 +259,9 @@ def deletePost(request, pk):
     
     context = {'obj':project}
     return render(request, 'awardx/delete.html', context)
+
+def search(request):
+    pass
 
 # def updateSite(request, pk):
 #     project = Project.objects.get(id = pk)
