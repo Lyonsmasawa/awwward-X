@@ -56,8 +56,13 @@
 
     <div class="visit-site">
         <button class="btn btnc"><a href="{{best.link}}">Visit site</a></button>
-        <p><a href="{% url 'profile' best.owner.id %}"><img src="{{best.owner.profile_photo.url}}"
-                    class="rounded-circle img-thumbnail" style="width: 5rem;"></a></p>
+        <p>
+            {% for user in raters %}
+            qqq
+            <a href="{% url 'profile' user.id %}"><img src="{{user.profile_photo.url}}"
+                    class="rounded-circle img-thumbnail" style="width: 5rem;"></a>
+            {% endfor %}
+        </p>
     </div>
 
 

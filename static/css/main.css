@@ -1602,9 +1602,7 @@ input.nosub {
 
 .visit-site button {
     white-space: nowrap;
-    background-color: rgba(102, 205, 171, 0.685);
-    color: white;
-    outline: none;
+    outline: 1px solid aquamarine;
     border: none;
 }
 

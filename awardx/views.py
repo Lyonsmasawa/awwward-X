@@ -14,12 +14,20 @@ import datetime
 def home(request):
     projects = Project.objects.all()
     date = datetime.date.today()
+    raters = []
+    best = False
 
     get_by_score = Project.objects.filter().order_by('-average_score')
     if get_by_score.count() > 0:
+        print("test")
         best = get_by_score[0]
-
-    context = {'projects': projects, 'best':best, 'date':date,}
+        print(best.title)
+        best_project = Project.objects.get(title__contains = best.title)
+        rating = best_project.average_score
+        print(rating)
+        
+        
+    context = {'projects': projects, 'best':best, 'date':date, 'raters':raters,}
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):
@@ -33,7 +41,7 @@ def registerPage(request):
 
             Profile.objects.create(user = user)
 
-            login(request, user)
+            login(request, user) 
             return redirect('home')
 
         else:
