@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.core.validators import MaxValueValidator, MinValueValidator
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Profile(models.Model):
@@ -12,7 +13,7 @@ class Profile(models.Model):
 
     # TODO: Define fields here
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_photo = models.ImageField(upload_to='profiles/')
+    profile_photo = CloudinaryField('image', blank=True)
     bio = models.TextField()
     my_link = models.URLField()
     followers = models.IntegerField(blank=True, null=True)
@@ -38,14 +39,14 @@ class Project(models.Model):
     # TODO: Define fields here
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=20)
-    image = models.ImageField(upload_to='projects/')
-    image2 = models.ImageField(upload_to='projects/', null = True)
+    image = CloudinaryField('image')
+    image2 = CloudinaryField('image')
     description = models.TextField()
     link = models.URLField()
     location = models.CharField(max_length=20)
-    average_design = models.FloatField( blank=True, null=True)
-    average_usability = models.FloatField(  blank=True, null=True)
-    average_creativity = models.FloatField( blank=True, null=True)
+    average_design = models.FloatField(blank=True, null=True)
+    average_usability = models.FloatField(blank=True, null=True)
+    average_creativity = models.FloatField(blank=True, null=True)
     average_content = models.FloatField( blank=True, null=True)
     average_score = models.FloatField( blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
