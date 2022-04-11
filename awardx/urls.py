@@ -17,6 +17,7 @@ urlpatterns = [
     path('logout/', views.logoutUser, name="logout"),
     path('follow/<str:pk>/', views.followForm, name="follow"),
     path('api/profiles', views.profileList.as_view()),
+    path('api/projects', views.projectList.as_view()),
 ]
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
