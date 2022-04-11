@@ -12,19 +12,22 @@
     </div>
 
     <div class="section-two">
-        <div class="secxz">
-            <a href="{% url 'project' best.id %}"><span class="qws">{{best.owner.user.username}}</span> -
-                {{best.title}}</a>
-        </div>
-        <p></p>
-        <div class="details-x">
-            BY
-            <a href="{% url 'profile' best.owner.user.id %}">{{best.owner.user.username | upper}}</a>
-            FROM
-            {{best.owner.location | upper}} WITH &nbsp;<span
-                class=" btn btny text-redx"><strong>{{best.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
-        </div>
-
+        <a href="{% url 'project' best.id %}">
+            <div class="secxz">
+                <a href="{% url 'project' best.id %}"><span class="qws">{{best.owner.user.username}}</span> -
+                    {{best.title}}
+                    <p><i class="fa fa-share" aria-hidden="true"></i></p>
+                </a>
+            </div>
+            <p></p>
+            <div class="details-x">
+                BY
+                <a href="{% url 'profile' best.owner.user.id %}">{{best.owner.user.username | upper}}</a>
+                FROM
+                {{best.owner.location | upper}} WITH &nbsp;<span
+                    class=" btn btny text-redx"><strong>{{best.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
+            </div>
+        </a>
         <div class="d-flex rates-x">
             <p></p>
             <div>
