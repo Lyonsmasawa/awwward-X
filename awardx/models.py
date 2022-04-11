@@ -98,7 +98,7 @@ class Rating(models.Model):
     design = IntegerRangeField(min_value=1, max_value=10, null=True)
     usability = IntegerRangeField(min_value=1, max_value=10, null=True)
     content = IntegerRangeField(min_value=1, max_value=10, null=True)
-    creativity = IntegerRangeField(min_value=1, max_value=1, null=True)
+    creativity = IntegerRangeField(min_value=1, max_value=10, null=True)
     average = models.FloatField(null=True)
     when = models.DateTimeField(auto_now_add=True)
 
