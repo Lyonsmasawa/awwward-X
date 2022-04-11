@@ -58,9 +58,18 @@
         <button class="btn btnc"><a href="{{best.link}}">Visit site</a></button>
         <p>
             {% for user in raters %}
-            qqq
-            <a href="{% url 'profile' user.id %}"><img src="{{user.profile_photo.url}}"
-                    class="rounded-circle img-thumbnail" style="width: 5rem;"></a>
+            <div class="frate">
+                {% if user.profile_photo %}
+                <div class="grpx">
+                    <p>
+                        <img src=" {{ user.profile_photo.url}}" class="rounded-circle img-thumbnail"
+                            style="width: 5rem;">
+                    </p>
+                </div>
+                {% else %}
+                <p><i class="fa fa-user-circle rounded-circle img-thumbnail" style="width: 5rem;"></i></p>
+                {%endif%}
+            </div>
             {% endfor %}
         </p>
     </div>
@@ -68,8 +77,8 @@
 
 </div>
 {%endif%}
-
-<p class="m-3"><strong>Nominees </strong> We need your vote!</p>
+<p></p>
+<p class="m-3 pbg"><strong>Nominees </strong> We need your vote!</p>
 <br>
 <div class="container">
     <div class="row">

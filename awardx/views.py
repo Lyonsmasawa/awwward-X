@@ -21,10 +21,16 @@ def home(request):
     if get_by_score.count() > 0:
         print("test")
         best = get_by_score[0]
-        print(best.title)
-        best_project = Project.objects.get(title__contains = best.title)
-        rating = best_project.average_score
-        print(rating)
+        print(best.id)
+        projectx = Project.objects.get(id = 4)
+        ratings = projectx.rating_set.all()
+        print(ratings)
+        ratings_count = ratings.count()
+        print(ratings_count)
+        for rating in ratings:
+            raters.append(rating.user)
+            
+           
         
         
     context = {'projects': projects, 'best':best, 'date':date, 'raters':raters,}
@@ -195,6 +201,7 @@ def projectPage(request, pk):
             data.project = project
             data.average = (data.design + data.usability + data.content+data.creativity)/4
             data.save()
+            return redirect( 'project', pk)
     
 
     raters = []

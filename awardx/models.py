@@ -101,4 +101,4 @@ class Rating(models.Model):
 
     def __str__(self):
         """Unicode representation of Rating."""
-        return str(self.when)
+        return str(self.project)
