@@ -54,9 +54,11 @@ body {
 img {
     width: 100%;
 }
-.img-thumbnail{
+
+.img-thumbnail {
     border-radius: 1px;
 }
+
 a {
     display: inline-block;
     color: black;
@@ -1477,6 +1479,7 @@ input.nosub {
     background: transparent url("https://www.svgrepo.com/show/105160/smiley-square-face.svg") no-repeat 0px center;
     background-size: 3%;
 }
+
 .sections {
     width: 100%;
     height: 70vh;
@@ -1488,90 +1491,96 @@ input.nosub {
 }
 
 .sections::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
-.overlayx{
+
+.overlayx {
     width: 100%;
     height: 70vh;
     position: relative;
     background-color: black;
     opacity: .8;
 }
-.innerlay{
+
+.innerlay {
     width: 100%;
     height: 70vh;
     position: relative;
     opacity: 1;
 }
 
-.sections-one{
+.sections-one {
     position: relative;
     z-index: 2;
 }
-.section-two{
+
+.section-two {
     position: absolute;
     top: 38%;
     left: 18%;
-	z-index: 2;
-	width: 65%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	margin-top: -4rem;
-	font-weight: 700;
-	font-size: 2rem;
+    z-index: 2;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -4rem;
+    font-weight: 700;
+    font-size: 2rem;
     line-height: 1.2;
     text-transform: uppercase;
 }
-.details-x{
+
+.details-x {
     font-size: 1.5rem;
     color: white;
     font-weight: 300;
     background-color: black !important;
 }
-.details-x a{
+
+.details-x a {
     color: aquamarine;
-    
 }
 
-.rates-x{
+.rates-x {
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-.ratebox{
-    width: 8rem;
-    height: 8rem;
+.ratebox {
+    width: 6rem;
+    height: 6rem;
     align-items: center;
     text-align: center;
     justify-content: center;
-    font-size: 1.3rem;
     display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    outline: 4px solid mediumaquamarine;
+    font-size: 2rem;
+    outline: 3px solid mediumaquamarine;
     border-radius: 50%;
     margin: 2rem;
+    margin-top: 3rem;
 }
 
-.ratebox span{
-    padding-top: 0.8rem;
+.pzxc {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.5rem;
 }
 
-.section-three{
+.section-three {
     position: absolute;
     bottom: 2rem;
     right: 2rem;
 }
+
 .stdx {
     position: absolute;
     top: 4rem;
@@ -1580,12 +1589,12 @@ input.nosub {
     z-index: 2;
 }
 
-.stdx > span {
-   font-weight: 200;
-   font-size: 1rem;
+.stdx>span {
+    font-weight: 200;
+    font-size: 1rem;
 }
 
-.secxz a{
+.secxz a {
     color: white;
     opacity: 1;
     font-weight: 900;
@@ -1974,7 +1983,8 @@ nav {
     padding: .5rem 1.3rem;
     border-radius: 25px;
 }
-.photox{
+
+.photox {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -1987,13 +1997,16 @@ nav {
     color: black;
     width: max-content;
 }
-.btnc:hover{
+
+.btnc:hover {
     border: 1px solid mediumaquamarine;
     color: mediumaquamarine;
 }
-.visitsite{
+
+.visitsite {
     display: flex;
 }
+
 .upone {
     display: flex;
     align-items: center;
@@ -2008,20 +2021,24 @@ nav {
     border: 1px solid black;
     border-radius: 50%;
 }
-.detailsz{
+
+.detailsz {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.locdate{
+
+.locdate {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.smx{
+
+.smx {
     font-size: 1.2rem;
 }
+
 .searchx input[type=text]:focus {
     width: max-content;
     border: 2px solid #ccc;
@@ -2032,29 +2049,31 @@ nav {
     font-weight: 500;
     font-size: 1rem;
 }
-.logo svg{
+
+.logo svg {
     padding: 2%;
 }
 
-.grpx{
+.grpx {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: max-content;
 }
 
-.cvb{
+.cvb {
     font-size: 1.4rem;
 }
 
-.dropdown-toggle{
+.dropdown-toggle {
     display: flex;
     color: black;
     align-items: center;
     justify-content: space-between;
     font-weight: 900;
 }
-.btn-mx{
+
+.btn-mx {
     color: white;
     background-color: black;
     white-space: nowrap;
@@ -2063,23 +2082,25 @@ nav {
     line-height: 3.5rem;
     border-radius: 0%;
 }
-.xcvx{
+
+.xcvx {
     box-shadow: 0px 2px 5px rgb(180, 180, 180);
 }
+
 .card-img-top {
     width: 100%;
     height: 18vw;
     object-fit: cover;
 }
 
-.btny{
+.btny {
     border-radius: 50px;
     color: black;
     font-size: 1.1rem;
     outline: 2px solid mediumaquamarine;
 }
 
-.frate{
+.frate {
     display: flex;
     align-items: center;
     justify-content: space-between;
