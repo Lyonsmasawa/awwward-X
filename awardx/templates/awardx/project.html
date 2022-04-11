@@ -56,7 +56,7 @@
     </div>
 
     <div class="visit-site">
-        <button class="btn btnc"><a href="{{project.link}}">Visit site</a></button>
+        <button class="btn btnc"><a href="{{project.link}}" target="_blank">Visit site</a></button>
         <p>
             {% if project.owner.profile_photo %}
             <a href="{% url 'profile' project.owner.user.id %}"><img src=" {{ project.owner.profile_photo.url}}"

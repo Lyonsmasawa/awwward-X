@@ -58,7 +58,7 @@
     </div>
 
     <div class="visit-site">
-        <button class="btn btnc"><a href="{{best.link}}">Visit site</a></button>
+        <button class="btn btnc"><a href="{{best.link}}" target="_blank">Visit site</a></button>
         <p>
             {% if best.owner.profile_photo %}
             <a href="{% url 'profile' best.owner.user.id %}"><img src=" {{ best.owner.profile_photo.url}}"
@@ -90,7 +90,7 @@
                     <small>{{project.updated | date}}</small>
                 </div>
                 <div class="card-body container">
-                    <h7> 
+                    <h7>
                         <span>
                             {% if project.owner.profile_photo %}
                             <img src="{{project.owner.profile_photo.url}}" alt="" class="rounded-circle"
