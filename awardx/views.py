@@ -260,7 +260,7 @@ def deletePost(request, pk):
     context = {'obj':project}
     return render(request, 'awardx/delete.html', context)
 
-def search(request):
+def search(request): 
     pass
 
 # def updatePost(request, pk):
