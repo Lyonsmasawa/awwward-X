@@ -16,6 +16,7 @@ urlpatterns = [
     path('project/<str:pk>/', views.projectPage, name="project"),
     path('logout/', views.logoutUser, name="logout"),
     path('follow/<str:pk>/', views.followForm, name="follow"),
+    path('', views.P)
 ]
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

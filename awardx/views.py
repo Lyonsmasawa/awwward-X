@@ -10,6 +10,9 @@ from .forms import CustomUserForm
 from django.contrib.auth.decorators import login_required
 import datetime
 from django.db.models import Q
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import  ProfileSerializer, ProjectSerializer
 
 # Create your views here.
 def home(request):
@@ -48,7 +51,7 @@ def home(request):
 def registerPage(request):
     if request.user.is_authenticated:
         logout(request)
-        
+
     if request.method == 'POST':
         form = CustomUserForm(request.POST)
         if form.is_valid():
@@ -280,3 +283,19 @@ def search(request):
 
 #     context = {'form': form, }
 #     return render(request, 'awardx/submit_form.html', context)
+
+class ProfileList(APIView):
+
+    def get(self ,request, format = None):
+        all_profiles =  Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        
+        return Response(serializers.data) 
+
+class ProjectList(APIView):
+
+    def get(self, request, format = None):
+        all_projects =  Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+
+        return Response(serializers.data)  
