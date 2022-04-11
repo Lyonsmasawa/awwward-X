@@ -21,6 +21,10 @@ This is an awwwards clone where the user can perform functions same as the ones 
 ### Another user profile view
 <img src="another.png"> 
 
+## API EndPoints
+
+- '/api/profiles'
+- '/api/projects'
 
 ## Setup Requirements
 
