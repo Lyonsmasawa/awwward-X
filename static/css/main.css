@@ -2152,7 +2152,7 @@ nav {
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
     .sections{
-        height: 70vh;
+        height: 60vh;
         font-size: 70%;
     }
   } 
@@ -2160,13 +2160,13 @@ nav {
   /* Large devices (laptops/desktops, 992px and up) */
   @media only screen and (min-width: 992px) {
     .sections{
-        height: 60vh;
+        height: 50vh;
     }
   } 
   
   /* Extra large devices (large laptops and desktops, 1200px and up) */
   @media only screen and (min-width: 1200px) {
     .sections{
-        height: 60vh;
+        height: 50vh;
     }
   }
