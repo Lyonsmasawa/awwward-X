@@ -3,91 +3,89 @@
 
 {% block content %}
 <div class="container-fluid">
-    <div class="container">
-        {% if request.user == project.owner.user %}
-        <span><a href=""><i class="fas fa-edit"></i></a></span>
-        <br>
-        <span>
-            <a href="{% url 'delete-post' project.id %}"><i class="fa fa-times"></i></a>
-        </span>
-        {% endif %}
-        <img src="{{project.image}}" alt="{{image.name}}">
-        <p class="card-text text-center">
-            {{project.average_design|stringformat:'f'|slice:"0:4"}}-{{project.average_usability|stringformat:'f'|slice:"0:4"}}-{{project.average_content|stringformat:'f'|slice:"0:4"}}-{{project.average_score|stringformat:'f'|slice:"0:4"}}
-        </p>
-        <p class="card-text text-center">{{project.description}}</p>
-        <p class="card-text text-center">from {{project.location}} -- <a
-                href="{% url 'profile' project.owner.user.id %}">By {{project.owner.user.username}}</a>
-        </p>
-        <p class="card-text text-center"><a class="card-text text-center" href="{{project.link}}"
-                target="_blank">Visit</a></p>
-        {% if request.user in raters %}
-        <div class="container">
-            <p><strong>You have already voted !!!</strong><i class="fa fa-smile"></i></p>
-            {% else %}
-            <button class="btn btn--main" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Rate
-                Project</button>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Rate Project</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" method="post">
-                                {% csrf_token %}
-                                {% for field in form %}
-                                <div class="form__group form__group">
-                                    <label for="room_name">{{field.label}}</label>
-                                    {{field}}
-                                </div>
-                                {% endfor %}
+    <div class="sections pxsec"
+        style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{project.image.url}}') no-repeat center; background-size: cover;">
+        <div class="section-two">
+            <div class="secxz">
+                <a href="{% url 'project' project.id %}"><span class="qws">{{project.owner.user.username}}</span> -
+                    {{project.title}}</a>
+            </div>
+            <p></p>
+            <div class="details-x">
+                BY
+                <a href="{% url 'profile' project.owner.user.id %}">{{project.owner.user.username | upper}}</a>
+                FROM
+                {{project.owner.location | upper}} WITH &nbsp;<span
+                    class=" btn btny text-redx"><strong>{{project.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
+            </div>
 
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn--main">Rate</button>
-                            </form>
-                        </div>
-
+            <div class="d-flex rates-x">
+                <p></p>
+                <div>
+                    <div class="ratebox">
+                        <p>{{project.average_design|stringformat:'f'|slice:"0:4"}}</p>
                     </div>
+                    <p class="pzxc">design</p>
+                </div>
+                <div>
+                    <div class="ratebox">
+                        <p>{{project.average_usability|stringformat:'f'|slice:"0:4"}}</p>
+                    </div>
+                    <p class="pzxc">usability</p>
+                </div>
+                <div>
+                    <div class="ratebox">
+                        <p>{{project.average_content|stringformat:'f'|slice:"0:4"}}</p>
+                    </div>
+                    <p class="pzxc">content</p>
+                </div>
+                <div>
+                    <div class="ratebox">
+                        <p>{{project.average_creativity|stringformat:'f'|slice:"0:4"}}</p>
+                    </div>
+                    <p class="pzxc">creativity</p>
                 </div>
             </div>
         </div>
-        {% endif %}
-    </div>
-    <br>
-    <div class="container-fluid">
-        <p>{{ratings_count}} review's'</p>
-        <div class="pcv">
-            {% for rating in ratings %}
-            <div class="frate">
-                {% if rating.user.profile.profile_photo %}
-                <div class="grpx">
-                    <p><img src=" {{ rating.user.profile.profile_photo.url}}" class="rounded-circle img-thumbnail"
-                            style="width: 5rem;">
-                    </p>
-                    <p>&nbsp;</p>
-                    <p class="cvb">{{rating.user.username}}</p>
-                </div>
-                {% else %}
-                <p><i class="fa fa-user-circle rounded-circle img-thumbnail"
-                    style="width: 5rem;"></i></p>
-                {%endif%}
-                <div class="sived">
-                    <p>
-                        <button class="btn btny">{{rating.design}}</button>
-                        <button class="btn btny">{{rating.usability}}</button>
-                        <button class="btn btny">{{rating.content}}</button>
-                        ~ <button class="btn btny">{{rating.average|stringformat:'f'|slice:"0:4"}}</button>
-                    </p>
-                </div>
-            </div>
-            <hr>
-            {% endfor %}
+
+        <div class="visit-site">
+            <button class="btn btnc"><a href="{{project.link}}">Visit site</a></button>
+            <p>
+               
+            </p>
         </div>
     </div>
+</div>
+<br>
+<div class="container">
+    <p>{{ratings_count}} review's'</p>
+    <div class="pcv">
+        {% for rating in ratings %}
+        <div class="frate">
+            {% if rating.user.profile.profile_photo %}
+            <div class="grpx">
+                <p><img src=" {{ rating.user.profile.profile_photo.url}}" class="rounded-circle img-thumbnail"
+                        style="width: 5rem;">
+                </p>
+                <p>&nbsp;</p>
+                <p class="cvb">{{rating.user.username}}</p>
+            </div>
+            {% else %}
+            <p><i class="fa fa-user-circle rounded-circle img-thumbnail" style="width: 5rem;"></i></p>
+            {%endif%}
+            <div class="sived">
+                <p>
+                    <button class="btn btny">{{rating.design}}</button>
+                    <button class="btn btny">{{rating.usability}}</button>
+                    <button class="btn btny">{{rating.content}}</button>
+                    ~ <button class="btn btny">{{rating.average|stringformat:'f'|slice:"0:4"}}</button>
+                </p>
+            </div>
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+</div>
 </div>
 
 {% endblock content %}
