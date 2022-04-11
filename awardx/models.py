@@ -43,8 +43,8 @@ class Project(models.Model):
     location = models.CharField(max_length=20)
     average_design = models.FloatField( blank=True, null=True)
     average_usability = models.FloatField(  blank=True, null=True)
+    average_creativity = models.FloatField( blank=True, null=True)
     average_content = models.FloatField( blank=True, null=True)
-    creativity_content = models.FloatField( blank=True, null=True)
     average_score = models.FloatField( blank=True, null=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True) #auto_now takes a snapshot everytime a save occures while auto_now_add takes a snapshot only one the first time a save occures

@@ -1477,6 +1477,147 @@ input.nosub {
     background: transparent url("https://www.svgrepo.com/show/105160/smiley-square-face.svg") no-repeat 0px center;
     background-size: 3%;
 }
+.sections {
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.sections::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+}
+.overlayx{
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    background-color: black;
+    opacity: .8;
+}
+.innerlay{
+    width: 100%;
+    height: 70vh;
+    position: relative;
+    opacity: 1;
+}
+
+.sections-one{
+    position: relative;
+    z-index: 2;
+}
+.section-two{
+    position: absolute;
+    top: 38%;
+    left: 18%;
+	z-index: 2;
+	width: 65%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: -4rem;
+	font-weight: 700;
+	font-size: 2rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+.details-x{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 300;
+    background-color: black !important;
+}
+.details-x a{
+    color: aquamarine;
+    
+}
+
+.rates-x{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.ratebox{
+    width: 8rem;
+    height: 8rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    outline: 4px solid mediumaquamarine;
+    border-radius: 50%;
+    margin: 2rem;
+}
+
+.ratebox span{
+    padding-top: 0.8rem;
+}
+
+.section-three{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+.stdx {
+    position: absolute;
+    top: 4rem;
+    left: 3rem;
+    color: white;
+    z-index: 2;
+}
+
+.stdx > span {
+   font-weight: 200;
+   font-size: 1rem;
+}
+
+.secxz a{
+    color: white;
+    opacity: 1;
+    font-weight: 900;
+    font-size: 3.5rem;
+}
+
+.voters {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 4rem;
+    right: 2rem;
+    padding-right: inherit;
+    z-index: 2;
+}
+
+.voters img {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-right: 1.2rem;
+    border-radius: 50%;
+    z-index: 2;
+    object-fit: cover;
+}
+
+@media (max-width: 425px) {
+    .sections {
+        width: 100%;
+        height: 35vh !important;
+    }
+}
+
 
 .prof {
     padding-left: 2rem;

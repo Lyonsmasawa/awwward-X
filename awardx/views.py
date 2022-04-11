@@ -8,16 +8,18 @@ from django.contrib.auth import authenticate, login ,logout
 from django.contrib.auth.models import User
 from .forms import CustomUserForm
 from django.contrib.auth.decorators import login_required
+import datetime
 
 # Create your views here.
 def home(request):
     projects = Project.objects.all()
+    date = datetime.date.today()
 
     get_by_score = Project.objects.filter().order_by('-average_score')
     if get_by_score.count() > 0:
         best = get_by_score[0]
 
-    context = {'projects': projects, 'best':best,}
+    context = {'projects': projects, 'best':best, 'date':date,}
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):
