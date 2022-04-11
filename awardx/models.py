@@ -81,28 +81,25 @@ class Follow(models.Model):
         """Unicode representation of Follow."""
         return str(self.when)
 
+class IntegerRangeField(models.IntegerField):
+    def __init__(self, verbose_name=None, name=None, min_value=None, max_value=None, **kwargs):
+        self.min_value, self.max_value = min_value, max_value
+        models.IntegerField.__init__(self, verbose_name, name, **kwargs)
+    def formfield(self, **kwargs):
+        defaults = {'min_value': self.min_value, 'max_value':self.max_value}
+        defaults.update(kwargs)
+        return super(IntegerRangeField, self).formfield(**defaults)
+
 class Rating(models.Model):
     """Model definition for Rating."""
 
     # TODO: Define fields here
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
-    design = models.IntegerField(null=True, validators=[
-            MaxValueValidator(10),
-            MinValueValidator(1)
-        ])
-    usability = models.IntegerField(null=True, validators=[
-            MaxValueValidator(10),
-            MinValueValidator(1)
-        ])
-    content = models.IntegerField(null=True, validators=[
-            MaxValueValidator(10),
-            MinValueValidator(1)
-        ])
-    creativity = models.IntegerField(null=True, validators=[
-            MaxValueValidator(10),
-            MinValueValidator(1)
-        ])
+    design = IntegerRangeField(min_value=1, max_value=10, null=True)
+    usability = IntegerRangeField(min_value=1, max_value=10, null=True)
+    content = IntegerRangeField(min_value=1, max_value=10, null=True)
+    creativity = IntegerRangeField(min_value=1, max_value=1, null=True)
     average = models.FloatField(null=True)
     when = models.DateTimeField(auto_now_add=True)
 
