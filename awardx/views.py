@@ -34,7 +34,7 @@ def home(request):
             print("test")
             best = get_by_score[0]
             print(best.id)
-            projectx = Project.objects.get(id = 4)
+            projectx = Project.objects.get(id = best.id)
             ratings = projectx.rating_set.all()
             print(ratings)
             ratings_count = ratings.count()
@@ -45,7 +45,7 @@ def home(request):
            
         
         
-    context = {'projects': projects, 'best':best, 'date':date, 'raters':raters,}
+    context = {'projects': projects, 'best':best, 'date':date,}
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):
