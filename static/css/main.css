@@ -1526,7 +1526,6 @@ input.nosub {
 .details-x {
     font-size: 1.5rem;
     color: white;
-    font-weight: 300;
 }
 
 .details-x a {
@@ -1580,6 +1579,15 @@ input.nosub {
     font-size: 3.5rem;
 }
 
+.text-redx {
+    color: red;
+    background: white;
+}
+
+.text-redx strong {
+    font-weight: 900;
+    font-size: 1.4rem;
+}
 
 .visit-site {
     position: absolute;
@@ -1591,14 +1599,16 @@ input.nosub {
     width: 100vw;
     justify-content: space-between;
 }
-.visit-site button{
+
+.visit-site button {
     white-space: nowrap;
     background-color: rgba(102, 205, 171, 0.685);
     color: white;
     outline: none;
     border: none;
 }
-.visit-site button a{
+
+.visit-site button a {
     color: white;
     font-weight: 900;
     font-size: 1.25rem;

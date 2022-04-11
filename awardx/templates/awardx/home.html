@@ -3,8 +3,8 @@
 
 {% block content %}
 {% if best %}
-<div class="sections" style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{best.image.url}}') no-repeat center; background-size: cover;">
-
+<div class="sections"
+    style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{best.image.url}}') no-repeat center; background-size: cover;">
     <div class="section-one">
         <strong class="stdx">
             <p><strong>Site of the day</strong> <span>{{date}}</span></p>
@@ -16,12 +16,13 @@
             <a href="{% url 'project' best.id %}"><span class="qws">{{best.owner.user.username}}</span> -
                 {{best.title}}</a>
         </div>
+        <p></p>
         <div class="details-x">
             BY
             <a href="{% url 'profile' best.owner.user.id %}">{{best.owner.user.username | upper}}</a>
             FROM
-            {{best.owner.location | upper}} WITH <span
-                class="text-red"><strong>{{best.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
+            {{best.owner.location | upper}} WITH &nbsp;<span
+                class=" btn btny text-redx"><strong>{{best.average_score|stringformat:'f'|slice:"0:4"}}</strong></span>
         </div>
 
         <div class="d-flex rates-x">
@@ -55,9 +56,10 @@
 
     <div class="visit-site">
         <button class="btn btnc"><a href="{{best.link}}">Visit site</a></button>
-        <p><a href="{% url 'profile' best.owner.id %}"><img src="{{best.owner.profile_photo.url}}" style="width: 9rem;"></a></p>
+        <p><a href="{% url 'profile' best.owner.id %}"><img src="{{best.owner.profile_photo.url}}"
+                    class="rounded-circle img-thumbnail" style="width: 5rem;"></a></p>
     </div>
- 
+
 
 </div>
 {%endif%}
