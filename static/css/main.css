@@ -2099,14 +2099,17 @@ nav {
     outline: 2px solid mediumaquamarine;
 }
 
+.btn-center{
+    margin-left: 4rem;
+}
+
 .frate {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .pxsec{
-    height: 50vh;
-   
+    height: 50vh
 }
 
 .finx{
