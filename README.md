@@ -3,7 +3,7 @@
 ## Description
 This is an awwwards clone where the user can perform the same functions as the ones on the real awwwards.com site
 
-### Profile
+### Home Page
 <img src="login.png"> 
 
 ### Project page
