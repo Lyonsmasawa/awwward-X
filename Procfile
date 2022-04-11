@@ -1,1 +1,1 @@
-web: gunicorn instax.wsgi --log-file -
+web: gunicorn awardx.wsgi --log-file -
