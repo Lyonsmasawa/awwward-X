@@ -4,7 +4,7 @@
 This is an awwwards clone where the user can perform the same functions as the ones on the real awwwards.com site
 
 ### Home Page
-<img src="day.png"> 
+<img src="days.png"> 
 
 ### No site of the day
 <img src="no.png"> 
