@@ -33,9 +33,7 @@ def home(request):
     else:
         get_by_score = Project.objects.filter().order_by('-average_score')
         if get_by_score.count() > 0:
-            print("test")
             b_filter = get_by_score[0]
-            print(b_filter.average_score)
             if b_filter.average_score != None:
                 best = b_filter
                 searched_count = False
