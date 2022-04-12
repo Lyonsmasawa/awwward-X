@@ -56,7 +56,7 @@ class Project(models.Model):
 
         verbose_name = 'Project'
         verbose_name_plural = 'Projects'
-        ordering = ['-updated', '-created']
+        ordering = ['-created']
 
     def __str__(self):
         """Unicode representation of Project."""
@@ -107,7 +107,6 @@ class Rating(models.Model):
 
         verbose_name = 'Rating'
         verbose_name_plural = 'Ratings'
-        ordering = ['-when']
 
     def __str__(self):
         """Unicode representation of Rating."""
