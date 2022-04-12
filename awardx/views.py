@@ -38,15 +38,17 @@ def home(request):
                 if project.average_score > 0 and not None:
                     project_list.append(project)
                     print("test")
-                    best = project_list[0]
-                    print(best.average_score)
-                    searched_count = False
-                    q = False
-                        
-                else:
-                    best = False
-                    searched_count = False
-                    q = False
+
+            if len(project_list) > 0:
+                best = project_list[0]
+                print(best.average_score)
+                searched_count = False
+                q = False
+
+            else:
+                best = False
+                searched_count = False
+                q = False
         else:
             best = False
             q = False
