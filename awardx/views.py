@@ -30,7 +30,7 @@ def home(request):
         best = False
 
     else:
-        get_by_score = Project.objects.filter().order_by('-average_score','-updated')
+        get_by_score = Project.objects.filter().order_by('-average_score')
         if get_by_score.count() > 0:
             print("test")
             best = get_by_score[0]
