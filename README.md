@@ -4,7 +4,10 @@
 This is an awwwards clone where the user can perform the same functions as the ones on the real awwwards.com site
 
 ### Home Page
-<img src="login.png"> 
+<img src="day.png"> 
+
+### No site of the day
+<img src="no.png"> 
 
 ### Project page
 <img src="proj.png">
@@ -15,11 +18,7 @@ This is an awwwards clone where the user can perform the same functions as the o
 ### Rating Page
 <img src="rt.png">
 
-### Another user profile view
-<img src="another.png"> 
-
 ## API EndPoints
-
 - '/api/profiles'
 - '/api/projects'
 
