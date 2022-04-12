@@ -38,7 +38,7 @@ class Project(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=20)
     image = CloudinaryField('image')
-    image2 = CloudinaryField('image')
+    image_two = CloudinaryField('image')
     description = models.TextField()
     link = models.URLField()
     location = models.CharField(max_length=20)
