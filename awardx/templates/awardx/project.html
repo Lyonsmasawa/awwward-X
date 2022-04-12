@@ -1,5 +1,6 @@
 {% extends 'main.html' %}
 {% load bootstrap5 %}
+{% load static %}
 
 {% block content %}
 <div class="sections"
@@ -62,7 +63,8 @@
             <a href="{% url 'profile' project.owner.user.id %}"><img src=" {{ project.owner.profile_photo.url}}"
                     class="rounded-circle img-thumbnail" style="width: 5rem;"></a>
             {% else %}
-            <p><i class="fa fa-user-circle rounded-circle img-thumbnail"></i></p>
+            <a href="{% url 'profile' project.owner.user.id %}"><img src="{% static 'images/avatar.jpg' %}"
+                class="rounded-circle img-thumbnail" style="width: 5rem;"></a>
             {%endif%}
         </p>
     </div>
@@ -145,7 +147,13 @@
                 <p class="cvb">{{rating.user.username}}</p>
             </div>
             {% else %}
-            <p><i class="fa fa-user-circle rounded-circle img-thumbnail" style="width: 5rem;"></i></p>
+            <div class="grpx">
+                <p><img src="{% static 'images/avatar.jpg' %}" alt="" class="rounded-circle img-thumbnail"
+                        style="width: 5rem;">
+                </p>
+                <p>&nbsp;</p>
+                <p class="cvb">{{rating.user.username}}</p>
+            </div>
             {%endif%}
             <div class="sived">
                 <p>
