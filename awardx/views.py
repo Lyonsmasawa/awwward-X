@@ -1,3 +1,4 @@
+from lib2to3.pgen2.token import GREATER
 from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -25,7 +26,7 @@ def home(request):
             Q(title__icontains = q) |
             Q(owner__user__username__icontains = q) 
         )
-        pq = projects.count()
+        searched_count = projects.count()
         q=True
         best = False
 
@@ -33,12 +34,24 @@ def home(request):
         get_by_score = Project.objects.filter().order_by('-average_score')
         if get_by_score.count() > 0:
             print("test")
-            best = get_by_score[0]
-            pq = 0
+            b_filter = get_by_score[0]
+            print(b_filter.average_score)
+            if b_filter.average_score != None:
+                best = b_filter
+                searched_count = False
+                q = False
+            else:
+                best = False
+                searched_count = False
+                q = False
+        else:
+            best = False
+            q = False
+            searched_count = False
            
         
         
-    context = {'projects': projects, 'best':best, 'date':date, 'q':q, 'pq':pq, }
+    context = {'projects': projects, 'best':best, 'date':date, 'q':q, 'pq':searched_count, }
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):
