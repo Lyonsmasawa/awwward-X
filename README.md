@@ -70,7 +70,7 @@ The following languages have been used on this project:
 
 ## Setup/Installation Requirements
 
-- Click to view <a target="_blank" href="https://awward-x.herokuapp.com/">AWWARD-X</a>
+- Click to view <a target="_blank" href="https://awwwardxl.herokuapp.com/">AWWARD-X</a>
     
 ## Known Bugs
 
