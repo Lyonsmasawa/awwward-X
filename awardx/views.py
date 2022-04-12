@@ -32,18 +32,21 @@ def home(request):
 
     else:
         get_by_score = Project.objects.filter().order_by('-average_score')
-        if get_by_score.count() > 0 and not None:
-            print("test")
-            b_filter = get_by_score[0]
-            print(b_filter.average_score)
-            if b_filter.average_score != None:
-                best = b_filter
-                searched_count = False
-                q = False
-            else:
-                best = False
-                searched_count = False
-                q = False
+        project_list = []
+        if get_by_score.count() > 0:
+            for project in get_by_score:
+                if project.average_score > 0 and not None:
+                    project_list.append(project)
+                    print("test")
+                    best = project_list[0]
+                    print(best.average_score)
+                    searched_count = False
+                    q = False
+                        
+                else:
+                    best = False
+                    searched_count = False
+                    q = False
         else:
             best = False
             q = False
