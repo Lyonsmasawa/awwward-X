@@ -35,9 +35,9 @@ def home(request):
         project_list = []
         if get_by_score.count() > 0:
             for project in get_by_score:
-                if project.average_score is not 0 and not None:
+                if project.average_score is not None:
                     project_list.append(project)
-                    print("test")
+                    print(project.average_score)
 
             if len(project_list) > 0:
                 best = project_list[0]
