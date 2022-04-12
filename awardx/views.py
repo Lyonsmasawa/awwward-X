@@ -26,7 +26,7 @@ def home(request):
         )
         searched_count = projects.count()
         q=True
-        today = False
+        today = True
         best = False
 
     else:
@@ -49,7 +49,7 @@ def home(request):
                 best = False
                 searched_count = False 
                 q = False
-                today = False
+                today = True
         else:
             best = False
             today = False
