@@ -1,22 +1,19 @@
-# InstaX
+# AwwardX
 
 ## Description
-This is an awwwards clone where the user can perform functions same as the ones on the real awwwards.com
+This is an awwwards clone where the user can perform the same functions as the ones on the real awwwards.com site
 
-### Login view
+### Home Page
 <img src="login.png"> 
 
-### New user landing page
-<img src="newuser.png">
+### Project page
+<img src="proj.png">
 
 ### Profile page
-<img src="profile.png">
+<img src="prof.png">
 
-## Home Page
-<img src="home.png">
-
-### View Post
-<img src="postview.png">
+### Rating Page
+<img src="rt.png">
 
 ### Another user profile view
 <img src="another.png"> 
