@@ -72,7 +72,15 @@
 </div>
 {%endif%}
 {% else %}
-<p class="todax"> {Site of the day section} <span class="text-red" style="font-weight: 500;">~ No projects posted today ~</span></p>
+{% if q %}
+{% else %}
+<div class="sections">
+    <p class="todax"> { Site of the day section } <span class="text-red" style="font-weight: 500;"> ~ No projects posted / rated 
+            today ~ </span>
+        <p class="text-center">Please Submit a project and let people rate it for this section to work</p>    
+    </p>
+</div>
+{% endif %}
 {% endif %}
 <p></p>
 
