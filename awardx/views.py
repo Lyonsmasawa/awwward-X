@@ -49,7 +49,7 @@ def home(request):
                 best = False
                 searched_count = False 
                 q = False
-                today = True
+                today = False
         else:
             best = False
             today = False
