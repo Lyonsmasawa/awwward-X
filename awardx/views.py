@@ -47,7 +47,7 @@ def home(request):
 
             else:
                 best = False
-                searched_count = False
+                searched_count = False 
                 q = False
                 today = False
         else:
