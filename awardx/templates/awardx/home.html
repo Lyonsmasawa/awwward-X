@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block content %}
+{% if today %}
 {% if best %}
 <div class="sections"
     style="background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{{best.image.url}}') no-repeat center; background-size: cover;">
@@ -70,6 +71,9 @@
     </div>
 </div>
 {%endif%}
+{% else %}
+<p class="todax"> {Site of the day section} <span class="text-red" style="font-weight: 500;">~ No projects posted today ~</span></p>
+{% endif %}
 <p></p>
 
 {% if q %}

@@ -1,5 +1,3 @@
-from lib2to3.pgen2.token import GREATER
-from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Follow, Profile, Project, Rating
@@ -28,10 +26,11 @@ def home(request):
         )
         searched_count = projects.count()
         q=True
+        today = False
         best = False
 
     else:
-        get_by_score = Project.objects.filter().order_by('-average_score')
+        get_by_score = Project.objects.filter(created__contains = date).order_by('-average_score')
         project_list = []
         if get_by_score.count() > 0:
             for project in get_by_score:
@@ -44,6 +43,7 @@ def home(request):
                 print(best.average_score)
                 searched_count = False
                 q = False
+                today = True
 
             else:
                 best = False
@@ -51,12 +51,13 @@ def home(request):
                 q = False
         else:
             best = False
+            today = False
             q = False
             searched_count = False
            
         
         
-    context = {'projects': projects, 'best':best, 'date':date, 'q':q, 'pq':searched_count, }
+    context = {'projects': projects, 'best':best, 'date':date, 'today':today, 'q':q, 'pq':searched_count, }
     return render(request, 'awardx/home.html', context)
 
 def registerPage(request):

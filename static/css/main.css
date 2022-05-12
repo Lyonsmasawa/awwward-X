@@ -2115,6 +2115,19 @@ nav {
     box-shadow: 1px 1px 6px 3px rgba(0, 0, 0, 0.1);
 }
 
+.todax{
+    background-color: black;
+    color: white;
+    display: flex;
+    font-size: 2rem;
+    height: 8rem;
+    font-weight: 900;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+
 #wrapper {
     display: flex;
     align-items: center;
